@@ -23,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
     vertical-align: baseline;
     font: inherit;
     font-size: 100%;
+    font-family: "Noto Sans KR";
   }
   article, aside, details, figcaption, figure,
   footer, header, hgroup, main, menu, nav, section {
