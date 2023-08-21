@@ -5,6 +5,7 @@ import CourseScore from './pages/CourseScore';
 import ConditionalPlan from './pages/ConditionalPlan';
 import SideNavigation from './components/common/SideNavigation';
 import { styled } from 'styled-components';
+import Ready from './pages/ready';
 
 export default function Router() {
   return (
@@ -17,6 +18,7 @@ export default function Router() {
             <Route path="/career" element={<CareerPlan />} />
             <Route path="/course" element={<CourseScore />} />
             <Route path="/plan" element={<ConditionalPlan />} />
+            <Route path="/ready" element={<Ready />} />
           </Routes>
         </GlobalWrapper>
       </BrowserRouter>

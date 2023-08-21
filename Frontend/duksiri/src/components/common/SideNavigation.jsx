@@ -16,6 +16,8 @@ export default function SideNavigation() {
       case '플래너':
         navigate('/plan');
         break;
+      default:
+        navigate('/ready');
     }
   }
   return (
