@@ -2,8 +2,8 @@ import { styled } from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 
 export default function SideNavigation() {
-  const MenuList = ['학생 정보', '추가 정보', '이수 내역', '플래너', '추천 강의'];
   const navigate = useNavigate();
+  const MenuList = ['학생 정보', '추가 정보', '이수 내역', '플래너', '추천 강의'];
 
   function handleMovePage(menu) {
     switch (menu) {
