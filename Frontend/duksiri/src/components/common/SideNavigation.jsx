@@ -25,8 +25,7 @@ export default function SideNavigation() {
       <MenuUl>
         {MenuList.map((menu, idx) => (
           <MenuLi key={idx} onClick={() => handleMovePage(menu)}>
-            {' '}
-            {menu}{' '}
+            {menu}
           </MenuLi>
         ))}
       </MenuUl>
