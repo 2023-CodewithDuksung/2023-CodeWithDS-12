@@ -27,18 +27,19 @@ const SideWrapper = styled.aside`
 
 const MenuUl = styled.ul`
   display: flex;
-  flex-direction: column;
   align-items: center;
-
-  color: #999999;
+  flex-direction: column;
 
   margin-top: 6.7rem;
+
+  color: #999;
 `;
 
 const MenuLi = styled.li`
-  margin: 0.3rem;
   width: 23rem;
-  font-size: 1.8rem;
+  margin: 0.3rem;
   padding: 2rem 7rem;
+
   background-color: white;
+  font-size: 1.8rem;
 `;

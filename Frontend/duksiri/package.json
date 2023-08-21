@@ -20,6 +20,7 @@
     "stylelint-styled-components-order": "^1.0.6"
   },
   "devDependencies": {
+    "@stylelint/postcss-css-in-js": "^0.38.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@vitejs/plugin-react": "^4.0.3",
@@ -33,6 +34,11 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "prettier": "^3.0.2",
+    "postcss-styled-syntax": "^0.4.0",
+    "stylelint": "^15.10.1",
+    "stylelint-config-standard": "^34.0.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-order": "^6.0.3",
     "vite": "^4.4.5"
   }
 }
