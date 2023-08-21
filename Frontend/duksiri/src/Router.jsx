@@ -14,6 +14,7 @@ export default function Router() {
         <GlobalWrapper>
           <Routes>
             <Route path="/" element={<CareerPlan />} />
+            <Route path="/career" element={<CareerPlan />} />
             <Route path="/course" element={<CourseScore />} />
             <Route path="/plan" element={<ConditionalPlan />} />
           </Routes>

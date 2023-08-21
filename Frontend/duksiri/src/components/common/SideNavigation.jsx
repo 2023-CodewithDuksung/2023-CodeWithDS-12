@@ -1,13 +1,31 @@
 import { styled } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 export default function SideNavigation() {
   const MenuList = ['학생 정보', '추가 정보', '이수 내역', '플래너', '추천 강의'];
+  const navigate = useNavigate();
 
+  function handleMovePage(menu) {
+    switch (menu) {
+      case '학생 정보':
+        navigate('/career');
+        break;
+      case '이수 내역':
+        navigate('/course');
+        break;
+      case '플래너':
+        navigate('/plan');
+        break;
+    }
+  }
   return (
     <SideWrapper>
       <MenuUl>
         {MenuList.map((menu, idx) => (
-          <MenuLi key={idx}> {menu} </MenuLi>
+          <MenuLi key={idx} onClick={() => handleMovePage(menu)}>
+            {' '}
+            {menu}{' '}
+          </MenuLi>
         ))}
       </MenuUl>
     </SideWrapper>
@@ -40,6 +58,9 @@ const MenuLi = styled.li`
   margin: 0.3rem;
   padding: 2rem 7rem;
 
-  background-color: white;
   font-size: 1.8rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
