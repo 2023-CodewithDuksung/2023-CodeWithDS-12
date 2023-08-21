@@ -3,15 +3,26 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import CareerPlan from './pages/CareerPlan';
 import CourseScore from './pages/CourseScore';
 import ConditionalPlan from './pages/ConditionalPlan';
+import SideNavigation from './components/common/SideNavigation';
+import { styled } from 'styled-components';
 
 export default function Router() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<CareerPlan />} />
-        <Route path="/course" element={<CourseScore />} />
-        <Route path="/plan" element={<ConditionalPlan />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <SideNavigation />
+        <GlobalWrapper>
+          <Routes>
+            <Route path="/" element={<CareerPlan />} />
+            <Route path="/course" element={<CourseScore />} />
+            <Route path="/plan" element={<ConditionalPlan />} />
+          </Routes>
+        </GlobalWrapper>
+      </BrowserRouter>
+    </>
   );
 }
+
+const GlobalWrapper = styled.main`
+  padding-left: 24rem;
+`;
