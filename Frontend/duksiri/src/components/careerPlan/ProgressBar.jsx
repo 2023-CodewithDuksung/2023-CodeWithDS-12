@@ -19,6 +19,7 @@ const ProgressBarWrapper = styled.section`
 `;
 
 const ProgressBarBox = styled.article`
+  /* width: ${({ step }) => step * (33.6 / 5)}rem; */
   width: ${({ step }) => step * (33.6 / 5)}rem;
   height: 2rem;
 
