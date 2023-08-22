@@ -4,8 +4,6 @@ import com.duksiri.duxby.dto.UserDTO;
 import com.duksiri.duxby.mapper.UserMapper;
 import com.duksiri.duxby.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,6 +33,7 @@ public class UserService {
         userDTO.setSecondMajorCredit(18);
         userDTO.setGECredit(42);
         userDTO.setTotalCredit(99);
+        userDTO.setGradePointAverage((float) 3.8);
         userDTO.setTeamPlay(false);
         userDTO.setPresentation(true);
         userDTO.setDiscussion(false);
