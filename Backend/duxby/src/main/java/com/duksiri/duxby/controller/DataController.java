@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Slf4j
 public class DataController {
 
-    // Service 선언
+    // Service 선언..
+    // test
     private final UserService userService;
     private final SubjectService subjectService;
     private final TakeSubjectService takeSubjectService;
