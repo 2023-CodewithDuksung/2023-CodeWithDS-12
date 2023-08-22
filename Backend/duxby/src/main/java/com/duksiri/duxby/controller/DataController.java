@@ -1,7 +1,11 @@
 package com.duksiri.duxby.controller;
 
+import com.duksiri.duxby.dto.SubjectDTO;
 import com.duksiri.duxby.dto.UserDTO;
+import com.duksiri.duxby.parse.CsvParser;
+import com.duksiri.duxby.service.SubjectService;
 import com.duksiri.duxby.service.UserService;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -14,6 +18,7 @@ public class DataController {
 
     // Service 선언
     private final UserService userService;
+    private final SubjectService subjectService;
 
     @GetMapping("/data/usertable")
     public void userTable() {
@@ -45,4 +50,10 @@ public class DataController {
         userService.saveUser(userDTO);
     }
 
+    @GetMapping("/data/subjecttable")
+    public void subjectTable() {
+
+        CsvParser csvParser = new CsvParser(subjectService);
+        csvParser.readCSV();
+    }
 }
