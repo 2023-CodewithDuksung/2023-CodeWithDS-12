@@ -62,7 +62,13 @@ const CourseNum = styled.h1`
 `;
 
 const ToggleText = styled.h6`
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 3.5rem;
+
   color: #000;
   font-weight: 400;
   font-size: 1.2rem;
+  align-content: end;
 `;

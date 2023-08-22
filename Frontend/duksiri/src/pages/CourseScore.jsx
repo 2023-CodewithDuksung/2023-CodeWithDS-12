@@ -33,8 +33,8 @@ const BoxContainer = styled.article`
   grid-template-columns: 2fr 1fr;
 `;
 
+// 테스트용으로 삭제될 애
 const TestMiniBox = styled.div`
-  /* width: 60rem; */
   height: 15rem;
   margin-bottom: 3rem;
   margin-left: 3rem;
