@@ -28,4 +28,6 @@ export default function Router() {
 
 const GlobalWrapper = styled.main`
   padding-left: 24rem;
+
+  background: #f7f9fa;
 `;

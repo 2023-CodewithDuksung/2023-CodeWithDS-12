@@ -18,9 +18,6 @@ export default function CourseScore() {
 
 const CourseWrapper = styled.main`
   padding: 5rem;
-
-  /* background: #f7f9fa; */
-  background: yellow;
 `;
 const Title = styled.h1`
   margin-bottom: 5.7rem;
