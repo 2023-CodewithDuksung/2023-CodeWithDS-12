@@ -20,11 +20,12 @@ export default function ProgressBox({ step }) {
 const BoxWrapper = styled.article`
   display: flex;
   flex-direction: column;
-  align-content: center;
+
+  padding: 3.2rem 2.3rem 0 3.4rem;
+  margin-bottom: 3rem;
 
   background-color: #fff;
-  padding: 3.2rem 2.3rem 0rem 3.4rem;
-  margin-bottom: 3rem;
+  align-content: center;
 `;
 
 const TitleWrapper = styled.div`
@@ -34,31 +35,34 @@ const TitleWrapper = styled.div`
 
 const TitleContainer = styled.div`
   display: flex;
+
   margin-bottom: 1.2rem;
 `;
 
 const MajorNum = styled.h1`
-  font-size: 2rem;
-  font-weight: 700;
   margin-right: 2.7rem;
   margin-left: 0.6rem;
+
+  font-weight: 700;
+  font-size: 2rem;
 `;
 
 const MajorName = styled.h1`
-  font-size: 2rem;
   color: #7a68ae;
   font-weight: 700;
+  font-size: 2rem;
 `;
 
 const CourseNum = styled.h1`
-  font-size: 2rem;
+  margin-right: 1.2rem;
+
   color: #858585;
   font-weight: 700;
-  margin-right: 1.2rem;
+  font-size: 2rem;
 `;
 
 const ToggleText = styled.h6`
   color: #000;
-  font-size: 1.2rem;
   font-weight: 400;
+  font-size: 1.2rem;
 `;

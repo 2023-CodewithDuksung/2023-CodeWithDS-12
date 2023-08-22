@@ -21,5 +21,6 @@ const ProgressBarWrapper = styled.section`
 const ProgressBarBox = styled.article`
   width: ${({ step }) => step * (33.6 / 5)}rem;
   height: 2rem;
+
   background: linear-gradient(270deg, #d9e270 0%, #66e2e2 100%);
 `;

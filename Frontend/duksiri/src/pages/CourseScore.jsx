@@ -17,15 +17,17 @@ export default function CourseScore() {
 }
 
 const CourseWrapper = styled.main`
-  padding: 5rem 5rem;
+  padding: 5rem;
+
   /* background: #f7f9fa; */
   background: yellow;
 `;
 const Title = styled.h1`
   margin-bottom: 5.7rem;
-  font-size: 3rem;
+
   color: #000;
   font-weight: 700;
+  font-size: 3rem;
 `;
 
 const BoxContainer = styled.article`
@@ -37,8 +39,9 @@ const BoxContainer = styled.article`
 const TestMiniBox = styled.div`
   /* width: 60rem; */
   height: 15rem;
-  flex-shrink: 0;
-  background-color: beige;
-  margin-left: 3rem;
   margin-bottom: 3rem;
+  margin-left: 3rem;
+
+  background-color: beige;
+  flex-shrink: 0;
 `;
