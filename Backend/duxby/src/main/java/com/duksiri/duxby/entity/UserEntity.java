@@ -71,6 +71,9 @@ public class UserEntity {
     @Column
     private Integer totalCredit;
 
+    @Column
+    private float gradePointAverage;
+
     @Column(columnDefinition = "TINYINT(1)")
     private boolean teamPlay;
 
