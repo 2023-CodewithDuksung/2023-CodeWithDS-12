@@ -3,6 +3,7 @@ package com.duksiri.duxby.controller;
 import com.duksiri.duxby.dto.TakeSubjectDTO;
 import com.duksiri.duxby.dto.UserDTO;
 import com.duksiri.duxby.parse.SubjectCsvParser;
+import com.duksiri.duxby.parse.TakeSubjectCsvParser;
 import com.duksiri.duxby.service.SubjectService;
 import com.duksiri.duxby.service.TakeSubjectService;
 import com.duksiri.duxby.service.UserService;
@@ -37,11 +38,8 @@ public class DataController {
 
     @GetMapping("/data/takesubjecttable")
     public void takeSubjectTable() {
-        // 테스트
-        TakeSubjectDTO takeSubjectDTO = new TakeSubjectDTO();
-        takeSubjectDTO.setTakeSubjectId("20210000-123456");
-
-        takeSubjectService.saveTakeSubject(takeSubjectDTO);
+        TakeSubjectCsvParser csvParser = new TakeSubjectCsvParser(takeSubjectService);
+        csvParser.readTakeSubjectCSV();
     }
 
 }

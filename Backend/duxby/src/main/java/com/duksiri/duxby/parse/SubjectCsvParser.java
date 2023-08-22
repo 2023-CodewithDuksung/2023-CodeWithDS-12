@@ -11,7 +11,6 @@ import org.springframework.core.io.ClassPathResource;
 import java.io.*;
 
 @RequiredArgsConstructor
-@Slf4j
 public class SubjectCsvParser {
 
     // 서비스 선언
