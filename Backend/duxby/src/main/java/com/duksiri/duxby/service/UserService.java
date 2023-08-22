@@ -33,7 +33,7 @@ public class UserService {
         userDTO.setBaseMajorCredit(15);
         userDTO.setFirstMajorCredit(24);
         userDTO.setSecondMajorCredit(18);
-        userDTO.setGECredit(36);
+        userDTO.setGECredit(42);
         userDTO.setTotalCredit(99);
         userDTO.setTeamPlay(false);
         userDTO.setPresentation(true);
