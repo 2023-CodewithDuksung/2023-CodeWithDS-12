@@ -4,7 +4,6 @@ import com.duksiri.duxby.dto.SubjectDTO;
 import com.duksiri.duxby.service.SubjectService;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
-import jakarta.persistence.EntityExistsException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
@@ -12,7 +11,8 @@ import org.springframework.core.io.ClassPathResource;
 import java.io.*;
 
 @RequiredArgsConstructor
-public class CsvParser {
+@Slf4j
+public class SubjectCsvParser {
 
     // 서비스 선언
     private final SubjectService subjectService;
@@ -23,7 +23,7 @@ public class CsvParser {
 
     String[] subjectInfo;
 
-    public void readCSV() {
+    public void readSubjectCSV() {
         try {
             CSVReader csvReader = new CSVReader(new InputStreamReader(new FileInputStream("C:\\Users\\ski03\\subject_data.csv"), "UTF-8"));
             csvReader.readNext();
@@ -64,7 +64,5 @@ public class CsvParser {
             throw new RuntimeException(e);
         }
     }
-
-
 
 }

@@ -15,8 +15,6 @@ public class SubjectService {
 
     // 테이블에 데이터 저장 메소드
     public void saveSubject(SubjectDTO subjectDTO) {
-        // 1. dto -> entity 변환
-        // 2. repository의 save 메소드 호출
         subjectRepository.save(SubjectMapper.toSubjectEntity(subjectDTO));
     }
 

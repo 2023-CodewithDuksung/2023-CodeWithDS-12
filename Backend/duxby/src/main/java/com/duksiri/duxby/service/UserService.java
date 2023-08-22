@@ -17,8 +17,28 @@ public class UserService {
 
     // 테이블에 데이터 저장 메소드
     public void saveUser(UserDTO userDTO) {
-        // 1. dto -> entity 변환
-        // 2. repository의 save 메소드 호출
+        userDTO.setUserStudentNumber("20210000");
+        userDTO.setUserName("김덕성");
+        userDTO.setUserFirstMajor("컴퓨터공학전공");
+        userDTO.setUserSecondMajor("시각디자인전공");
+        userDTO.setFirstMajorHard(false);
+        userDTO.setSecondMajorHard(false);
+        userDTO.setRequiredCourseCredit(15);
+        userDTO.setA1Credit(0);
+        userDTO.setA2Credit(3);
+        userDTO.setA3Credit(6);
+        userDTO.setBCredit(9);
+        userDTO.setCCredit(3);
+        userDTO.setSelfDesignCredit(5);
+        userDTO.setBaseMajorCredit(15);
+        userDTO.setFirstMajorCredit(24);
+        userDTO.setSecondMajorCredit(18);
+        userDTO.setGECredit(36);
+        userDTO.setTotalCredit(99);
+        userDTO.setTeamPlay(false);
+        userDTO.setPresentation(true);
+        userDTO.setDiscussion(false);
+
         userRepository.save(UserMapper.toUserEntity(userDTO));
     }
 
