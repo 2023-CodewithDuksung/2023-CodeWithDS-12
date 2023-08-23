@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SideNavigation() {
   const navigate = useNavigate();
-  const MenuList = ['학생 정보', '추가 정보', '이수 내역', '플래너', '추천 강의'];
+  const MenuList = ['학적 정보', '이수 내역', '커리어 플래너', '퍼스널 시간표', '추천 강의'];
 
   function handleMovePage(menu) {
     switch (menu) {
-      case '학생 정보':
+      case '학적 정보':
         navigate('/career');
         break;
       case '이수 내역':
@@ -47,18 +47,19 @@ const SideWrapper = styled.aside`
 
 const MenuUl = styled.ul`
   display: flex;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 
   margin-top: 6.7rem;
 
   color: #999;
+  align-content: center;
 `;
 
 const MenuLi = styled.li`
-  width: 23rem;
   margin: 0.3rem;
-  padding: 2rem 7rem;
+  padding-top: 5rem;
 
   font-size: 1.8rem;
 
