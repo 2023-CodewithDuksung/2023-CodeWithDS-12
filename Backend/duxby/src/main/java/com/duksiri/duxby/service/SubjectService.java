@@ -22,10 +22,24 @@ public class SubjectService {
         subjectRepository.save(SubjectMapper.toSubjectEntity(subjectDTO));
     }
 
-    public List<Map<String, Object>>  getUserGECompletionSubject(String studentNumber, List<String> subjectClassification) {
+    public List<Map<String, Object>> getUserGECompletionSubject(String studentNumber, List<String> subjectClassification) {
         subjectClassification.add("융합(계열)");
         subjectClassification.add("기초");
         subjectClassification.add("설계");
-        return subjectRepository.findGEsubject(studentNumber, subjectClassification);
+        return subjectRepository.findGESubject(studentNumber, subjectClassification);
     }
+    public List<Map<String, Object>> getUserBaseMajorCompletionSubject(String studentNumber, String subjectClassification) {
+        subjectClassification = "전탐";
+        return subjectRepository.findBaseMajorSubject(studentNumber, subjectClassification);
+    }
+
+    public List<Map<String, Object>> getUserFirstMajorCompletionSubject(String studentNumber, String firstMajor) {
+        String subjectClassification = "전탐";
+        return subjectRepository.findFirstMajorSubject(studentNumber, subjectClassification, firstMajor);
+    }
+    public List<Map<String, Object>> getUserSecondMajorCompletionSubject(String studentNumber, String secondMajor) {
+        String subjectClassification = "전탐";
+        return subjectRepository.findSecondMajorSubject(studentNumber, subjectClassification, secondMajor);
+    }
+
 }

@@ -3,7 +3,6 @@ package com.duksiri.duxby.mapper;
 import com.duksiri.duxby.dto.UserDTO;
 import com.duksiri.duxby.entity.UserEntity;
 
-
 public class UserMapper {
 
     // UserEntity를 UserDTO로 변환하는 메서드
