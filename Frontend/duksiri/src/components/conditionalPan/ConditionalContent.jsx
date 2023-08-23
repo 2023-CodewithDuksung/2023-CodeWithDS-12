@@ -34,21 +34,41 @@ export default function ConditionalContent() {
     { title: '강의명 3', professor: '교수 3', time: '시간 3' },
   ];
 
+  const optionCompleteData = [
+    { key: 1, value: '전공' },
+    { key: 2, value: '교양' },
+    { key: 3, value: '전공탐색' },
+    { key: 4, value: '교직' },
+    { key: 5, value: '일반' },
+  ];
+  const optionAreaData = [
+    { key: 1, value: '컴퓨터공학전공' },
+    { key: 2, value: 'IT미디어공학전공' },
+    { key: 3, value: '소프트웨어공학전공' },
+    { key: 4, value: '사이버보안전공' },
+    { key: 5, value: '시각디자인전공' },
+  ];
+  const optionGradeData = [
+    { key: 1, value: '1학년' },
+    { key: 2, value: '2학년' },
+    { key: 3, value: '3학년' },
+    { key: 4, value: '4학년' },
+  ];
   return (
     <ConditionalContentWrapper>
       <ConditionalOptionContianer>
         <ConditionalOptionWrapper>
           <ConditionalOptionBox>
             <ConditionalOption>이수 구분</ConditionalOption>
-            <ConditionalSelectBox />
+            <ConditionalSelectBox optionData={optionCompleteData} />
           </ConditionalOptionBox>
           <ConditionalOptionBox>
             <ConditionalOption>전공/영역</ConditionalOption>
-            <ConditionalSelectBox />
+            <ConditionalSelectBox optionData={optionAreaData} />
           </ConditionalOptionBox>
           <ConditionalOptionBox>
             <ConditionalOption>학년</ConditionalOption>
-            <ConditionalSelectBox />
+            <ConditionalSelectBox optionData={optionGradeData} />
           </ConditionalOptionBox>
         </ConditionalOptionWrapper>
         <ConditionalSubmit>조회</ConditionalSubmit>
@@ -73,13 +93,25 @@ export default function ConditionalContent() {
             </ToggleSwitchWrapper>
           </ConditionalPlanHeader>
           {dummyPlans.map((plan, index) => (
-            <ConditionalPlanList key={index} plan={plan} handlePlanAdd={handlePlanAdd} addMode={true} />
+            <ConditionalPlanList
+              key={index}
+              plan={plan}
+              handlePlanAdd={handlePlanAdd}
+              selectedPlans={selectedPlans}
+              addMode={true}
+            />
           ))}
         </ConditionalPlanBox>
         <ConditionalPlanBox>
           <ConditionalPlanHeader></ConditionalPlanHeader>
           {selectedPlans.map((plan, index) => (
-            <ConditionalPlanList key={index} plan={plan} handlePlanRemove={handlePlanRemove} addMode={false} />
+            <ConditionalPlanList
+              key={index}
+              plan={plan}
+              handlePlanRemove={handlePlanRemove}
+              selectedPlans={selectedPlans}
+              addMode={false}
+            />
           ))}
         </ConditionalPlanBox>
       </ConditionalPlanWrapper>
@@ -122,7 +154,6 @@ const ConditionalOption = styled.p`
 const ConditionalSubmit = styled.div`
   width: 6rem;
   height: 4rem;
-  border-radius: 10px;
   border: 2px solid #bbb;
   background: #fff;
 
@@ -136,6 +167,8 @@ const ConditionalSubmit = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+
+  cursor: pointer;
 `;
 
 const ToggleName = styled.p`

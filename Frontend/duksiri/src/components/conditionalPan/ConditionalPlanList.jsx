@@ -1,7 +1,8 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-export default function ConditionalPlanList({ plan, handlePlanAdd, handlePlanRemove, addMode }) {
+export default function ConditionalPlanList({ plan, selectedPlans, handlePlanAdd, handlePlanRemove, addMode }) {
+  const isPlanSelected = selectedPlans?.some((selectedPlan) => selectedPlan.title === plan.title);
   const handleActionClick = () => {
     if (addMode) {
       handlePlanAdd(plan);
@@ -17,7 +18,9 @@ export default function ConditionalPlanList({ plan, handlePlanAdd, handlePlanRem
         <PlanProfessor>{plan.professor}</PlanProfessor>
         <PlanTime>{plan.time}</PlanTime>
       </PlanHeader>
-      <PlanButton onClick={handleActionClick}>{addMode ? '담기' : '빼기'}</PlanButton>
+      <PlanButton onClick={handleActionClick} isPlanSelected={isPlanSelected} addMode={addMode}>
+        {addMode ? '담기' : '빼기'}
+      </PlanButton>
     </PlanListContainer>
   );
 }
@@ -61,7 +64,8 @@ const PlanTime = styled.p`
   line-height: normal;
 `;
 const PlanButton = styled.div`
-  background-color: #eaf382;
+  background-color: ${(props) => (props.isPlanSelected && props.addMode ? '#bbb' : '#eaf382')};
+
   width: 8rem;
   height: 3.5rem;
   margin: 2rem;

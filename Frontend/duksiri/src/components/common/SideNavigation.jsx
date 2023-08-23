@@ -16,7 +16,7 @@ export default function SideNavigation() {
       case '커리어 플래너':
         navigate('/career');
         break;
-      case '스마트 시간표':
+      case '퍼스널 시간표':
         navigate('/plan');
         break;
       default:

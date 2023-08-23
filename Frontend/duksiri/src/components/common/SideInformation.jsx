@@ -43,6 +43,8 @@ const SideWrapper = styled.aside`
   background-color: #fff;
 
   padding: 5rem 3.5rem;
+  position: fixed;
+  right: 0;
 `;
 const InfoTitle = styled.p`
   color: #000;
