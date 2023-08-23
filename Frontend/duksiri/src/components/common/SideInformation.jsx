@@ -20,16 +20,16 @@ export default function SideInformation() {
       </InfoTable>
       <InfoTitle>이수내역 요약</InfoTitle>
       <InfoTable>
-        <InfoTh>학번</InfoTh>
+        <InfoTh>교양</InfoTh>
         <InfoTd>20210685</InfoTd>
         <tr></tr>
-        <InfoTh>성명</InfoTh>
+        <InfoTh>전탐</InfoTh>
         <InfoTd>김덕성</InfoTd>
         <tr></tr>
-        <InfoTh>수강학년(학기)</InfoTh>
+        <InfoTh>1전공</InfoTh>
         <InfoTd>3학년(6) </InfoTd>
         <tr></tr>
-        <InfoTh>전공</InfoTh>
+        <InfoTh>2전공</InfoTh>
         <InfoTd>20210685</InfoTd>
       </InfoTable>
     </SideWrapper>
