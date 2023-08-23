@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SideNavigation() {
   const navigate = useNavigate();
-  const MenuList = ['학적 정보', '이수 내역', '커리어 플래너', '퍼스널 시간표', '추천 강의'];
+  const MENU_LIST = ['학적 정보', '이수 내역', '커리어 플래너', '퍼스널 시간표', '추천 강의'];
 
   function handleMovePage(menu) {
     switch (menu) {
@@ -26,7 +26,7 @@ export default function SideNavigation() {
   return (
     <SideWrapper>
       <MenuUl>
-        {MenuList.map((menu, idx) => (
+        {MENU_LIST.map((menu, idx) => (
           <MenuLi key={idx} onClick={() => handleMovePage(menu)}>
             {menu}
           </MenuLi>
