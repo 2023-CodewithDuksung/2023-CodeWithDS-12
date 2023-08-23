@@ -1,15 +1,23 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-export default function ConditionalPlanList() {
+export default function ConditionalPlanList({ plan, handlePlanAdd, handlePlanRemove, addMode }) {
+  const handleActionClick = () => {
+    if (addMode) {
+      handlePlanAdd(plan);
+    } else {
+      handlePlanRemove(plan);
+    }
+  };
+
   return (
     <PlanListContainer>
       <PlanHeader>
-        <PlanTitle>강의명</PlanTitle>
-        <PlanProfessor>교수</PlanProfessor>
-        <PlanTime>강의시간</PlanTime>
+        <PlanTitle>{plan.title}</PlanTitle>
+        <PlanProfessor>{plan.professor}</PlanProfessor>
+        <PlanTime>{plan.time}</PlanTime>
       </PlanHeader>
-      <PlanButton>담기</PlanButton>
+      <PlanButton onClick={handleActionClick}>{addMode ? '담기' : '빼기'}</PlanButton>
     </PlanListContainer>
   );
 }
@@ -72,4 +80,6 @@ const PlanButton = styled.div`
   position: absolute;
   bottom: 0rem;
   right: 0rem;
+
+  cursor: pointer;
 `;
