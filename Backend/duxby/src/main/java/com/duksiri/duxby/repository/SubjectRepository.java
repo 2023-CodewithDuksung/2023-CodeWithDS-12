@@ -48,4 +48,61 @@ public interface SubjectRepository extends JpaRepository<SubjectEntity, String> 
             "ORDER BY t.completion_grade asc, t.completion_semester asc",
             nativeQuery = true)
     List<Map<String, Object>> findSecondMajorSubject(@Param("id")String id,@Param("subject_classification")String subject_classification, @Param("second_major")String second_major);
+
+    @Query(value = "SELECT * FROM subject_table AS s " +
+            "WHERE s.subject_classification IN (:subject_classification) " +
+            "AND s.major IN (:major) " +
+            "AND s.grade IN (:grade) " +
+            "AND s.presentation = 0 AND s.team_play = 0 AND s.discussion = 0"
+            , nativeQuery = true)
+    List<Map<String, Object>> findFilteringSubject000(@Param("subject_classification")List<String> subject_classification, @Param("major")String major, @Param("grade")int grade);
+    @Query(value = "SELECT * FROM subject_table AS s " +
+            "WHERE s.subject_classification IN (:subject_classification) " +
+            "AND s.major IN (:major) " +
+            "AND s.grade IN (:grade) " +
+            "AND s.presentation > 0 AND s.team_play = 0 AND s.discussion = 0"
+            , nativeQuery = true)
+    List<Map<String, Object>> findFilteringSubject100(@Param("subject_classification")List<String> subject_classification, @Param("major")String major, @Param("grade")int grade);
+    @Query(value = "SELECT * FROM subject_table AS s " +
+            "WHERE s.subject_classification IN (:subject_classification) " +
+            "AND s.major IN (:major) " +
+            "AND s.grade IN (:grade) " +
+            "AND s.presentation = 0 AND s.team_play > 0 AND s.discussion = 0"
+            , nativeQuery = true)
+    List<Map<String, Object>> findFilteringSubject010(@Param("subject_classification")List<String> subject_classification, @Param("major")String major, @Param("grade")int grade);
+    @Query(value = "SELECT * FROM subject_table AS s " +
+            "WHERE s.subject_classification IN (:subject_classification) " +
+            "AND s.major IN (:major) " +
+            "AND s.grade IN (:grade) " +
+            "AND s.presentation > 0 AND s.team_play > 0 AND s.discussion = 0"
+            , nativeQuery = true)
+    List<Map<String, Object>> findFilteringSubject110(@Param("subject_classification")List<String> subject_classification, @Param("major")String major, @Param("grade")int grade);
+    @Query(value = "SELECT * FROM subject_table AS s " +
+            "WHERE s.subject_classification IN (:subject_classification) " +
+            "AND s.major IN (:major) " +
+            "AND s.grade IN (:grade) " +
+            "AND s.presentation = 0 AND s.team_play = 0 AND s.discussion > 0"
+            , nativeQuery = true)
+    List<Map<String, Object>> findFilteringSubject001(@Param("subject_classification")List<String> subject_classification, @Param("major")String major, @Param("grade")int grade);
+    @Query(value = "SELECT * FROM subject_table AS s " +
+            "WHERE s.subject_classification IN (:subject_classification) " +
+            "AND s.major IN (:major) " +
+            "AND s.grade IN (:grade) " +
+            "AND s.presentation > 0 AND s.team_play = 0 AND s.discussion > 0"
+            , nativeQuery = true)
+    List<Map<String, Object>> findFilteringSubject101(@Param("subject_classification")List<String> subject_classification, @Param("major")String major, @Param("grade")int grade);
+    @Query(value = "SELECT * FROM subject_table AS s " +
+            "WHERE s.subject_classification IN (:subject_classification) " +
+            "AND s.major IN (:major) " +
+            "AND s.grade IN (:grade) " +
+            "AND s.presentation = 0 AND s.team_play > 0 AND s.discussion > 0"
+            , nativeQuery = true)
+    List<Map<String, Object>> findFilteringSubject011(@Param("subject_classification")List<String> subject_classification, @Param("major")String major, @Param("grade")int grade);
+    @Query(value = "SELECT * FROM subject_table AS s " +
+            "WHERE s.subject_classification IN (:subject_classification) " +
+            "AND s.major IN (:major) " +
+            "AND s.grade IN (:grade) " +
+            "AND s.presentation > 0 AND s.team_play > 0 AND s.discussion > 0"
+            , nativeQuery = true)
+    List<Map<String, Object>> findFilteringSubject111(@Param("subject_classification")List<String> subject_classification, @Param("major")String major, @Param("grade")int grade);
 }

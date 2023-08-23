@@ -1,14 +1,12 @@
 package com.duksiri.duxby.controller;
 
 import com.duksiri.duxby.dto.UserDTO;
-import com.duksiri.duxby.entity.UserEntity;
 import com.duksiri.duxby.mapper.UserMapper;
 import com.duksiri.duxby.service.SubjectService;
 import com.duksiri.duxby.service.TakeSubjectService;
 import com.duksiri.duxby.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.catalina.User;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +19,7 @@ import java.util.*;
 @RequestMapping("/duxby")
 @RequiredArgsConstructor
 @Slf4j
-public class CompletionController {
+public class CompletionSubjectController {
 
     private final UserService userService;
     private final SubjectService subjectService;
