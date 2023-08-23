@@ -40,6 +40,7 @@ const SideWrapper = styled.aside`
 
   width: 24rem;
   height: 100%;
+  padding-top: 8rem;
 
   background-color: #2f3033;
 `;
