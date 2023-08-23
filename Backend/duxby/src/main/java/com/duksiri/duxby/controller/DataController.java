@@ -1,6 +1,5 @@
 package com.duksiri.duxby.controller;
 
-import com.duksiri.duxby.dto.TakeSubjectDTO;
 import com.duksiri.duxby.dto.UserDTO;
 import com.duksiri.duxby.parse.SubjectCsvParser;
 import com.duksiri.duxby.parse.TakeSubjectCsvParser;

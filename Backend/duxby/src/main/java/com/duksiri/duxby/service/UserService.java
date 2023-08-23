@@ -1,10 +1,14 @@
 package com.duksiri.duxby.service;
 
 import com.duksiri.duxby.dto.UserDTO;
+import com.duksiri.duxby.entity.UserEntity;
 import com.duksiri.duxby.mapper.UserMapper;
 import com.duksiri.duxby.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -43,4 +47,8 @@ public class UserService {
 
     // 데이터 업데이트 메소드 (추후 추가)
 
+    // 학번으로 조회
+    public Optional<UserEntity> getStudentEntity(String studentNumber) {
+       return userRepository.findByUserStudentNumber(studentNumber);
+    }
 }
