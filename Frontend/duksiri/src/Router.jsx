@@ -6,11 +6,13 @@ import ConditionalPlan from './pages/ConditionalPlan';
 import SideNavigation from './components/common/SideNavigation';
 import { styled } from 'styled-components';
 import Ready from './pages/ready';
+import Header from './components/common/Header';
 
 export default function Router() {
   return (
     <>
       <BrowserRouter>
+        <Header />
         <SideNavigation />
         <GlobalWrapper>
           <Routes>
@@ -27,6 +29,7 @@ export default function Router() {
 }
 
 const GlobalWrapper = styled.main`
+  padding-top: 8rem;
   padding-left: 24rem;
 
   background: #f7f9fa;
