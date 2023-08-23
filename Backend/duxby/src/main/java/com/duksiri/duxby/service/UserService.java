@@ -15,7 +15,7 @@ public class UserService {
 
     // 테이블에 데이터 저장 메소드
     public void saveUser(UserDTO userDTO) {
-        userDTO.setUserStudentNumber("20210000");
+        userDTO.setUserStudentNumber("20210685");
         userDTO.setUserName("김덕성");
         userDTO.setUserFirstMajor("컴퓨터공학전공");
         userDTO.setUserSecondMajor("시각디자인전공");
