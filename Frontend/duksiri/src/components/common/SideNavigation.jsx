@@ -13,7 +13,10 @@ export default function SideNavigation() {
       case '이수 내역':
         navigate('/course');
         break;
-      case '플래너':
+      case '커리어 플래너':
+        navigate('/career');
+        break;
+      case '스마트 시간표':
         navigate('/plan');
         break;
       default:
@@ -62,6 +65,8 @@ const MenuLi = styled.li`
   padding-top: 5rem;
 
   font-size: 1.8rem;
+
+  text-align: center;
 
   &:hover {
     cursor: pointer;
