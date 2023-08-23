@@ -1,10 +1,14 @@
 package com.duksiri.duxby.service;
 
 import com.duksiri.duxby.dto.UserDTO;
+import com.duksiri.duxby.entity.UserEntity;
 import com.duksiri.duxby.mapper.UserMapper;
 import com.duksiri.duxby.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
+import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,7 +19,7 @@ public class UserService {
 
     // 테이블에 데이터 저장 메소드
     public void saveUser(UserDTO userDTO) {
-        userDTO.setUserStudentNumber("20210000");
+        userDTO.setUserStudentNumber("20210685");
         userDTO.setUserName("김덕성");
         userDTO.setUserFirstMajor("컴퓨터공학전공");
         userDTO.setUserSecondMajor("시각디자인전공");
@@ -43,4 +47,8 @@ public class UserService {
 
     // 데이터 업데이트 메소드 (추후 추가)
 
+    // 학번으로 조회
+    public Optional<UserEntity> getStudentEntity(String studentNumber) {
+       return userRepository.findByUserStudentNumber(studentNumber);
+    }
 }

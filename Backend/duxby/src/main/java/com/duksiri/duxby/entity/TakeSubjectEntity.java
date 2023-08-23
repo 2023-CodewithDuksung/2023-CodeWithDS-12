@@ -18,11 +18,11 @@ public class TakeSubjectEntity {
     private String takeSubjectId;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "user_student_number")
     private UserEntity userStudentNumber;
 
     @ManyToOne
-    @JoinColumn
+    @JoinColumn(name = "subject_code")
     private SubjectEntity subjectCode;
 
     @Column
