@@ -24,7 +24,7 @@ export default function Header() {
       <UserContainer>
         {TOP_NAV_LIST.map((site, idx) => (
           <TopList key={idx} onClick={() => handleMoveSite(site)}>
-            {menu}
+            {site}
           </TopList>
         ))}
         <LogButton>로그아웃</LogButton>
@@ -66,6 +66,10 @@ const TopList = styled.li`
   color: #808080;
   font-weight: 500;
   font-size: 1.6rem;
+
+  &:hover {
+    cursor: pointer;
+  }
 `;
 
 const LogButton = styled.button`
