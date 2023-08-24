@@ -83,4 +83,7 @@ public class SubjectService {
        return null;
     }
 
+    public List<Map<String,Object>> getRequiredMajorSubject(String subjectClassifition, String major) {
+        return subjectRepository.findRequiredMajorSubject(subjectClassifition, major);
+    }
 }

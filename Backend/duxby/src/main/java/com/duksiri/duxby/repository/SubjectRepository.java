@@ -105,4 +105,9 @@ public interface SubjectRepository extends JpaRepository<SubjectEntity, String> 
             "AND s.presentation > 0 AND s.team_play > 0 AND s.discussion > 0"
             , nativeQuery = true)
     List<Map<String, Object>> findFilteringSubject111(@Param("subject_classification")List<String> subject_classification, @Param("major")String major, @Param("grade")int grade);
+
+    @Query(value = "SELECT * FROM subject_table AS s " +
+            "WHERE s.major IN (:major) AND s.subject_classification IN (:subject_classification)"
+            , nativeQuery = true)
+    List<Map<String, Object>> findRequiredMajorSubject(@Param("subject_classification")String subject_classification, @Param("major")String major);
 }
