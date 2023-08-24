@@ -54,15 +54,15 @@ export default function SideInformation() {
                 (responsePersondata && responsePersondata.a3Credit >= 3 ? 1 : 0) >=
               2
               ? ''
-              : (responsePersondata && responsePersondata.a1Credit < 3 ? 'A1영역 미이수 ' : '') +
-                (responsePersondata && peresponsePersondatasondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
-                (responsePersondata && responsePersondata.a3Credit < 3 ? 'A3영역 미이수 ' : '')
-            : (responsePersondata && responsePersondata.a1Credit < 3 ? 'A1영역 미이수 ' : '') +
-              (responsePersondata && responsePersondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
-              (responsePersondata && responsePersondata.a3Credit < 3 ? 'A3영역 미이수' : '')}
-          {responsePersondata && responsePersondata.bcredit < 3 ? 'B영역 미이수 ' : ''}
-          {responsePersondata && responsePersondata.bcredit < 3 ? 'C영역 미이수' : ''}
-          {responsePersondata && responsePersondata.selfDesignCredit < 6 ? '자기설계 미이수 ' : ''}
+              : (responsePersondata && responsePersondata.a1Credit < 3 ? <p>A1영역 미이수</p> : '') +
+                (responsePersondata && peresponsePersondatasondata.a2Credit < 3 ? <p>A2영역 미이수</p> : '') +
+                (responsePersondata && responsePersondata.a3Credit < 3 ? <p>A3영역 미이수</p> : '')
+            : (responsePersondata && responsePersondata.a1Credit < 3 ? 'A1영역 미이수' : '') +
+              (responsePersondata && responsePersondata.a2Credit < 3 ? <p>A2영역 미이수</p> : '') +
+              (responsePersondata && responsePersondata.a3Credit < 3 ? <p>A2영역 미이수</p> : '')}
+          {responsePersondata && responsePersondata.bcredit < 3 ? <p>B영역 미이수</p> : ''}
+          {responsePersondata && responsePersondata.ccredit < 3 ? <p>C영역 미이수</p> : ''}
+          {responsePersondata && responsePersondata.selfDesignCredit < 6 ? <p>자기설계 미이수</p> : ''}
         </InfoTd>
         <tr></tr>
         <InfoTh>전탐</InfoTh>
@@ -97,7 +97,7 @@ const SideWrapper = styled.aside`
   background-color: #fff;
 
   padding: 5rem 3.5rem;
-  position: fixed;
+
   right: 0;
 `;
 const InfoTitle = styled.p`

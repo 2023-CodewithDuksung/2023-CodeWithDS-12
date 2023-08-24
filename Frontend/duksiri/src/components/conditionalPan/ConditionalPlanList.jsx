@@ -9,13 +9,14 @@ export default function ConditionalPlanList({
   addMode,
   selectedScore,
   subjectTime,
+  pre,
 }) {
   const isPlanSelected = selectedPlans?.some((selectedPlan) => selectedPlan.subject_name === plan.subject_name);
   const handleActionClick = () => {
     if (addMode) {
       if (selectedScore + plan.credit < 24) {
         if (selectedPlans.some((selectedPlan) => selectedPlan.subject_time === plan.subject_time)) {
-          alert('시간이 겹치는 강의가 존재니다.');
+          alert('시간이 겹치는 강의가 존재합니다.');
         } else {
           handlePlanAdd(plan);
           console.log('추가요');
@@ -36,11 +37,12 @@ export default function ConditionalPlanList({
         <PlanTime>{plan.grade}학년</PlanTime>
         <PlanTime>{plan.credit}학점</PlanTime>
       </PlanHeader>
-      <PlanPre>선수과목</PlanPre>
+      <PlanPre>선수과목{plan.pre}</PlanPre>
       <PlanButton
         onClick={handleActionClick}
         isPlanSelected={isPlanSelected}
         subjectTime={subjectTime}
+        pre={pre}
         addMode={addMode}>
         {addMode ? '담기' : '빼기'}
       </PlanButton>
