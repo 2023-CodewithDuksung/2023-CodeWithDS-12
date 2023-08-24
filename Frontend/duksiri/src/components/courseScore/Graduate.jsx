@@ -3,7 +3,7 @@ import { styled } from 'styled-components';
 import SplitProgressBox from './layout/SplitProgressBox';
 import { calcProgress } from '../../core/Progress';
 
-export default function Graduate({ userData }) {
+export default function graduate({ userData }) {
   const progressscore = calcProgress(userData.totalCredit, 130);
   const electivescore = calcProgress(userData.gecredit, 99);
   const basemajor = calcProgress(userData.baseMajorCredit + userData.gecredit, 99); //전탐
