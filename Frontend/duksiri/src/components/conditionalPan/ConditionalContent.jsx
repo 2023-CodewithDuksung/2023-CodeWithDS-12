@@ -323,8 +323,11 @@ const ConditionalPlanBox = styled.article`
   width: 48rem;
   height: 62rem;
   background: #eee;
-
   padding: 0.2rem;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const ConditionalPlanHeaderContainer = styled.div`
   height: 8rem;
