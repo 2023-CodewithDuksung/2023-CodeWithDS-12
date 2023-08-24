@@ -7,7 +7,7 @@ export default function ConditionalPlan() {
   return (
     <ConditionalContainer>
       <ConditionalWrapper>
-        <ConditionalTitle>스마트 시간표</ConditionalTitle>
+        <ConditionalTitle>퍼스널 시간표</ConditionalTitle>
         <ConditionalContent />
       </ConditionalWrapper>
       <SideInformation />

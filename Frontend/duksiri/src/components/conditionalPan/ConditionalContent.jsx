@@ -1,81 +1,140 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import ConditionalSelectBox from './ConditionalSelectBox';
 import ConditionalPlanList from './ConditionalPlanList';
+import Infosrc from './../../img/Info_icon.svg';
+import arrow_right from './../../img/arrow_right.svg';
 
 export default function ConditionalContent() {
   const [isPTChecked, setIsPTChecked] = useState(false);
   const [isTeamChecked, setIsTeamChecked] = useState(false);
   const [isDebateChecked, setIsDebateChecked] = useState(false);
+  const [selectedComplete, setSelectedComplete] = useState('');
+  const [selectedGrade, setSelectedGrade] = useState('');
+  const [selectedMajor, setSelectedMajor] = useState('');
+  const [selectedPT, setSelectedPT] = useState('전체');
+  const [selectedTeam, setSelectedTeam] = useState('전체');
+  const [selectedDebate, setSelectedDebate] = useState('전체');
   const [selectedPlans, setSelectedPlans] = useState([]);
+  const [selectedScore, setSelectedScore] = useState(0);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(0);
+  let responseSubjects;
 
-  function handlePTToggle() {
-    setIsPTChecked((prevState) => !prevState);
-  }
-  function handleTeamToggle() {
-    setIsTeamChecked((prevState) => !prevState);
-  }
-  function handleDebateToggle() {
-    setIsDebateChecked((prevState) => !prevState);
-  }
+  // function handlePTToggle() {
+  //   setIsPTChecked((prevState) => !prevState);
+  // }
+  // function handleTeamToggle() {
+  //   setIsTeamChecked((prevState) => !prevState);
+  // }
+  // function handleDebateToggle() {
+  //   setIsDebateChecked((prevState) => !prevState);
+  // }
   function handlePlanAdd(plan) {
-    if (!selectedPlans.some((selectedPlan) => selectedPlan.title === plan.title)) {
+    if (!selectedPlans.some((selectedPlan) => selectedPlan.subjectName === plan.subjectName)) {
+      setSelectedScore((prevScore) => prevScore + parseInt(plan.score));
+      setSelectedDifficulty((prevDifficulty) => prevDifficulty + parseInt(plan.difficulty));
       setSelectedPlans((prevPlans) => [...prevPlans, plan]);
     }
   }
   function handlePlanRemove(planToRemove) {
+    setSelectedScore((prevScore) => prevScore - parseInt(planToRemove.score));
+    setSelectedDifficulty((prevDifficulty) => prevDifficulty - parseInt(planToRemove.difficulty));
     setSelectedPlans((prevPlans) => prevPlans.filter((plan) => plan !== planToRemove));
   }
-
-  // 더미 데이터
-  const dummyPlans = [
-    { title: '강의명 1', professor: '교수 1', time: '시간 1' },
-    { title: '강의명 2', professor: '교수 2', time: '시간 2' },
-    { title: '강의명 3', professor: '교수 3', time: '시간 3' },
-  ];
 
   const optionCompleteData = [
     { key: 1, value: '전공' },
     { key: 2, value: '교양' },
-    { key: 3, value: '전공탐색' },
-    { key: 4, value: '교직' },
-    { key: 5, value: '일반' },
   ];
   const optionAreaData = [
     { key: 1, value: '컴퓨터공학전공' },
     { key: 2, value: 'IT미디어공학전공' },
-    { key: 3, value: '소프트웨어공학전공' },
-    { key: 4, value: '사이버보안전공' },
+    { key: 3, value: '사이버보안전공' },
+    { key: 4, value: '소프트웨어전공' },
     { key: 5, value: '시각디자인전공' },
   ];
+
   const optionGradeData = [
-    { key: 1, value: '1학년' },
-    { key: 2, value: '2학년' },
-    { key: 3, value: '3학년' },
-    { key: 4, value: '4학년' },
+    { key: 1, value: '2학년' },
+    { key: 2, value: '3학년' },
+    { key: 3, value: '4학년' },
   ];
+  const optionPTData = [
+    { key: 1, value: '전체' },
+    { key: 2, value: '있음' },
+    { key: 3, value: '없음' },
+  ];
+  const optionTeamData = [
+    { key: 1, value: '전체' },
+    { key: 2, value: '있음' },
+    { key: 3, value: '없음' },
+  ];
+  const optionDebateData = [
+    { key: 1, value: '전체' },
+    { key: 2, value: '있음' },
+    { key: 3, value: '없음' },
+  ];
+
+  function handleFetchData() {
+    const queryParams = new URLSearchParams({
+      subjectClassification: selectedComplete,
+      major: selectedMajor,
+      grade: selectedGrade,
+      presentation: selectedPT,
+      teamplay: selectedTeam,
+      discussion: selectedDebate,
+    });
+    if (!selectedComplete || !selectedMajor || !selectedGrade) {
+      alert('선택하지 않은 값이 있습니다.');
+    } else {
+      // console.log(`http://localhost:8080/duxby/smartschedule?${queryParams}`);
+
+      fetch(`http://localhost:8080/duxby/smartschedule?${queryParams}`)
+        .then((response) => response.json())
+        .then((responseJson) => {
+          console.log('서버에서 받은 데이터:', responseJson);
+          responseSubjects = responseJson.subject;
+        })
+        .catch((error) => {
+          console.error('에러 발생:', error);
+        });
+    }
+  }
   return (
     <ConditionalContentWrapper>
       <ConditionalOptionContianer>
         <ConditionalOptionWrapper>
           <ConditionalOptionBox>
             <ConditionalOption>이수 구분</ConditionalOption>
-            <ConditionalSelectBox optionData={optionCompleteData} />
+            <ConditionalSelectBox optionData={optionCompleteData} setSelectedValue={setSelectedComplete} />
           </ConditionalOptionBox>
           <ConditionalOptionBox>
             <ConditionalOption>전공/영역</ConditionalOption>
-            <ConditionalSelectBox optionData={optionAreaData} />
+            <ConditionalSelectBox optionData={optionAreaData} setSelectedValue={setSelectedMajor} />
           </ConditionalOptionBox>
           <ConditionalOptionBox>
-            <ConditionalOption>학년</ConditionalOption>
-            <ConditionalSelectBox optionData={optionGradeData} />
+            <ConditionalOption>교과목수준</ConditionalOption>
+            <ConditionalSelectBox optionData={optionGradeData} setSelectedValue={setSelectedGrade} />
+          </ConditionalOptionBox>
+          <ConditionalOptionBox>
+            <ToggleName>발표</ToggleName>
+            <ConditionalSelectBox optionData={optionPTData} setSelectedValue={setSelectedPT} />
+          </ConditionalOptionBox>
+          <ConditionalOptionBox>
+            <ToggleName>팀플</ToggleName>
+            <ConditionalSelectBox optionData={optionTeamData} setSelectedValue={setSelectedTeam} />
+          </ConditionalOptionBox>
+          <ConditionalOptionBox>
+            <ToggleName>토의/토론</ToggleName>
+            <ConditionalSelectBox optionData={optionDebateData} setSelectedValue={setSelectedDebate} />
           </ConditionalOptionBox>
         </ConditionalOptionWrapper>
-        <ConditionalSubmit>조회</ConditionalSubmit>
+        <ConditionalSubmit onClick={handleFetchData}>조회</ConditionalSubmit>
       </ConditionalOptionContianer>
+
       <ConditionalPlanWrapper>
         <ConditionalPlanBox>
-          <ConditionalPlanHeader>
+          {/* <ConditionalPlanHeaderContainer>
             <ToggleName>발표 제외</ToggleName>
             <ToggleSwitchWrapper>
               <ToggleInput checked={isPTChecked} onChange={handlePTToggle} />
@@ -91,19 +150,36 @@ export default function ConditionalContent() {
               <ToggleInput checked={isDebateChecked} onChange={handleDebateToggle} />
               <ToggleSlider />
             </ToggleSwitchWrapper>
-          </ConditionalPlanHeader>
-          {dummyPlans.map((plan, index) => (
-            <ConditionalPlanList
-              key={index}
-              plan={plan}
-              handlePlanAdd={handlePlanAdd}
-              selectedPlans={selectedPlans}
-              addMode={true}
-            />
-          ))}
+          </ConditionalPlanHeaderContainer> */}
+          {responseSubjects &&
+            responseSubjects.map((plan, index) => (
+              <ConditionalPlanList
+                key={index}
+                plan={plan}
+                handlePlanAdd={handlePlanAdd}
+                selectedPlans={selectedPlans}
+                addMode={true}
+              />
+            ))}
         </ConditionalPlanBox>
+        <img src={arrow_right} />
         <ConditionalPlanBox>
-          <ConditionalPlanHeader></ConditionalPlanHeader>
+          <ConditionalPlanHeaderContainer>
+            <ConditionalPlanHeaderWrapper>
+              <ConditionalPlandetail>담은 학점</ConditionalPlandetail>
+              <ToggleName2>{selectedScore}</ToggleName2>
+            </ConditionalPlanHeaderWrapper>
+            <ConditionalPlanHeaderWrapper>
+              <ConditionalPlandetail>난이도</ConditionalPlandetail>
+              <ToggleName2>
+                {selectedDifficulty > 10 ? (selectedDifficulty > 15 ? '힘듦' : '적정') : '쉬움'}
+              </ToggleName2>
+              <DifficultyDetail>
+                <li>어쩌구</li>
+                <li>점수의 총 합에 따라 해당 시간표의 쉬움 / 적정 / 힘듦의 난이도가 제공됩니다.</li>
+              </DifficultyDetail>
+            </ConditionalPlanHeaderWrapper>
+          </ConditionalPlanHeaderContainer>
           {selectedPlans.map((plan, index) => (
             <ConditionalPlanList
               key={index}
@@ -126,16 +202,18 @@ const ConditionalOptionContianer = styled.header`
   background: #fff;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  gap: 6.5rem;
-  height: 8.7rem;
-  padding: 3rem;
+  align-items: end;
+  gap: 3rem;
+  height: 17rem;
+  padding: 4rem 3rem;
 `;
 const ConditionalOptionWrapper = styled.header`
+  width: 85rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 5rem;
+  gap: 1rem;
 `;
 const ConditionalOptionBox = styled.div`
   display: flex;
@@ -144,6 +222,7 @@ const ConditionalOptionBox = styled.div`
   gap: 1rem;
 `;
 const ConditionalOption = styled.p`
+  width: 8rem;
   color: #bbb;
   font-family: Noto Sans KR;
   font-size: 1.6rem;
@@ -154,14 +233,13 @@ const ConditionalOption = styled.p`
 const ConditionalSubmit = styled.div`
   width: 6rem;
   height: 4rem;
-  border: 2px solid #bbb;
-  background: #fff;
+  background: #808080;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: #000;
+  color: #fff;
   font-family: Noto Sans KR;
   font-size: 1.5rem;
   font-style: normal;
@@ -173,10 +251,21 @@ const ConditionalSubmit = styled.div`
 
 const ToggleName = styled.p`
   color: #22bcbc;
+  width: 8rem;
   font-family: Noto Sans KR;
   font-size: 1.7rem;
   font-style: normal;
   font-weight: 700;
+  text-align: right;
+  line-height: normal;
+`;
+const ToggleName2 = styled.p`
+  color: #22bcbc;
+  font-family: Noto Sans KR;
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 700;
+  text-align: right;
   line-height: normal;
 `;
 
@@ -234,12 +323,31 @@ const ConditionalPlanBox = styled.article`
   height: 62rem;
   background: #eee;
 
-  padding: 1rem;
+  padding: 0.2rem;
 `;
-const ConditionalPlanHeader = styled.div`
-  height: 4rem;
+const ConditionalPlanHeaderContainer = styled.div`
+  height: 8rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+`;
+const ConditionalPlanHeaderWrapper = styled.div`
+  display: flex;
   align-items: center;
   gap: 1rem;
+  width: 80rem;
+`;
+const ConditionalPlandetail = styled.p`
+  color: #000;
+  font-family: Noto Sans KR;
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`;
+
+const DifficultyDetail = styled.ul`
+  font-size: 0.1rem;
 `;
