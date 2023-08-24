@@ -17,6 +17,7 @@ export default function CourseScore() {
       <BoxContainer>
         <Graduate userData={userData} />
         {/* <UnderTriangleIcon /> */}
+        {/* 주석 */}
         <ElectiveClass userData={userData} />
         <FirstMajor userData={userData} />
         <SecondMajor userData={userData} />
