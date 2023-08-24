@@ -1,7 +1,5 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import BoxLayout from './layout/BoxLayout';
-import ProgressBox from './layout/ProgressBox';
 import SplitProgressBox from './layout/SplitProgressBox';
 import { calcProgress } from '../../core/Progress';
 
