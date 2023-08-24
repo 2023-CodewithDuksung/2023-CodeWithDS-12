@@ -35,7 +35,7 @@ const BoxWrapper = styled.article`
   display: flex;
   flex-direction: column;
 
-  width: 148rem;
+  width: 147.5rem;
   height: 15rem;
   padding: 3.2rem 2.3rem 0 3.4rem;
   margin-bottom: 3rem;
@@ -101,7 +101,6 @@ const SplitLineA = styled.div`
   position: relative;
   left: ${({ lefta }) => lefta}rem;
 
-  height: 500px;
   height: 100%;
 
   border-left: 0.2rem solid #eee;
@@ -111,7 +110,6 @@ const SplitLineB = styled.div`
   position: relative;
   left: ${({ leftb }) => leftb}rem;
 
-  height: 500px;
   height: 100%;
 
   border-left: 0.2rem solid #eee;
@@ -121,7 +119,6 @@ const SplitLineC = styled.div`
   position: relative;
   left: ${({ leftc }) => leftc}rem;
 
-  height: 500px;
   height: 100%;
 
   border-left: 0.2rem solid #eee;

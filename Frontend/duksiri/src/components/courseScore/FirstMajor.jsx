@@ -16,6 +16,7 @@ export default function FirstMajor({ userData }) {
         maxscore="36"
         progressscore={progressscore}
         majorcolor="#7A68AE"
+        type="firstMajorSubject"
       />
 
       <TableBoxContainer>
@@ -64,7 +65,7 @@ export default function FirstMajor({ userData }) {
 const ScoreBoxWrapper = styled.div`
   display: flex;
 
-  width: 158rem;
+  width: 150rem;
 `;
 
 const TableBoxContainer = styled.div`

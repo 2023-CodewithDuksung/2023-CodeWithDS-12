@@ -1,8 +1,13 @@
 import { styled } from 'styled-components';
 import { USER_DATA } from '../../../core/mockCourseScore';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import ElectiveList from '../ClassList/ElectiveList';
 
-export default function ProgressBox({ nowscore, title, majorname, maxscore, progressscore, majorcolor }) {
+export default function ProgressBox({ nowscore, title, majorname, maxscore, progressscore, majorcolor, type }) {
+  const [isToggle, setIsToggle] = useState(false);
+  function handleOpenToggle() {
+    setIsToggle(!isToggle);
+  }
   return (
     <BoxWrapper>
       <TitleWrapper>
@@ -17,7 +22,10 @@ export default function ProgressBox({ nowscore, title, majorname, maxscore, prog
       <ProgressBarWrapper>
         <ProgressBarBox progressscore={progressscore} />
       </ProgressBarWrapper>
-      <ToggleText> ▼ 상세 내역 보기 </ToggleText>
+      <button onClick={handleOpenToggle}>
+        <ToggleText> ▼ 상세 내역 보기 </ToggleText>
+        {isToggle && <ElectiveList type={type} />}
+      </button>
     </BoxWrapper>
   );
 }
@@ -27,7 +35,6 @@ const BoxWrapper = styled.article`
   flex-direction: column;
 
   width: 86rem;
-  height: 15rem;
   padding: 3.2rem 2.3rem 0 3.4rem;
   margin-bottom: 3rem;
 
@@ -68,24 +75,22 @@ const CourseNum = styled.h1`
   font-weight: 700;
   font-size: 2rem;
 `;
-
 const ToggleText = styled.h6`
   display: flex;
   justify-content: flex-end;
 
-  margin-top: 3.5rem;
+  margin: 1.45rem 0;
 
   color: #000;
   font-weight: 400;
   font-size: 1.2rem;
-  align-content: end;
 `;
 
 const ProgressBarWrapper = styled.section`
   overflow: hidden;
 
   width: 100%;
-  height: 2rem;
+  height: 4.15rem;
 
   background-color: #eee;
 `;

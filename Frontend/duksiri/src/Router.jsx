@@ -29,6 +29,7 @@ export default function Router() {
 }
 
 const GlobalWrapper = styled.main`
+  height: 100vh;
   padding-top: 8rem;
   padding-left: 24rem;
 
