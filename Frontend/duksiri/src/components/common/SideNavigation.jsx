@@ -43,6 +43,7 @@ const SideWrapper = styled.aside`
   padding-top: 8rem;
 
   background-color: #2f3033;
+  z-index: 2;
 `;
 
 const MenuUl = styled.ul`
