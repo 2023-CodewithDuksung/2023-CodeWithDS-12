@@ -55,19 +55,19 @@
 |-- 📁 node_modules
 |-- 📁 public
 |-- 📁 src
-	|-- 📁 api
-	|-- 📁 assets
-			|-- 📁 icon
-			|-- 📁 image
-	|-- 📁 components
-	|-- 📁 core    //목데이터 상수 파일
-	|-- 📁 pages
-	|-- 📁 style
-			|-- globalStyle.js
-			|-- theme.js
-	|-- App.jsx
-	|-- main.jsx
-	|-- Router.jsx
+    |-- 📁 api
+    |-- 📁 assets
+	|-- 📁 icon
+        |-- 📁 image
+    |-- 📁 components
+    |-- 📁 core    //목데이터 상수 파일
+    |-- 📁 pages
+    |-- 📁 style
+	|-- globalStyle.js
+	|-- theme.js
+    |-- App.jsx
+    |-- main.jsx
+    |-- Router.jsx
 |-- .eslintrc.cjs
 |-- .gitignore
 |-- .prettierrc
@@ -86,3 +86,5 @@
 - React
 - styled-component
 - react-router-dom
+- axios
+- stylelint
