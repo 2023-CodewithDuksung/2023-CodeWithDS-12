@@ -19,7 +19,7 @@ const ConditionalContainer = styled.div`
   justify-content: space-between;
 `;
 const ConditionalWrapper = styled.div`
-  height: 100vh;
+  min-height: 100vh;
   background: #f7f9fa;
   padding: 5rem;
 `;
