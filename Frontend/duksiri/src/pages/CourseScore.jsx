@@ -9,7 +9,7 @@ import GraduateComponent from '../components/courseScore/GraduateComponent';
 
 export default function CourseScore() {
   const userData = USER_DATA.persondata;
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   function handleClickToggle() {
     setIsOpen(!isOpen);
