@@ -106,17 +106,20 @@ export default function ConditionalContent() {
           console.log(`http://localhost:8080/duxby/smartschedule?${queryParams}`);
           setResponseSubjects(response.data.subject);
           console.log(response.data.subject);
-          dummyDataWithTime = responseSubjects.map((data, index) => ({
-            ...data,
-            subject_time: timeList[index],
-            pre: preList[index],
-          }));
         })
         .catch((error) => {
           console.error('에러 발생:', error);
         });
     }
   }
+  if (responseSubjects) {
+    dummyDataWithTime = responseSubjects.map((data, index) => ({
+      ...data,
+      subject_time: timeList[index],
+      pre: preList[index],
+    }));
+  }
+  console.log(dummyDataWithTime);
 
   return (
     <ConditionalContentWrapper>
