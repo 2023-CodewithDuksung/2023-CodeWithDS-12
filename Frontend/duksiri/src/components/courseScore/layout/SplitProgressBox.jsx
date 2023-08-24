@@ -138,14 +138,14 @@ const SubjectName = styled.div`
   }
 
   :nth-child(2) {
-    margin-left: 21.5rem;
+    margin-left: 20rem;
   }
 
   :nth-child(3) {
-    margin-left: 14rem;
+    margin-left: 13rem;
   }
 
   :last-child {
-    margin-left: 18rem;
+    margin-left: 17rem;
   }
 `;

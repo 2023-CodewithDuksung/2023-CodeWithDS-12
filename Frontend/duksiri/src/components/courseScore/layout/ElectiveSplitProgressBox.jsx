@@ -50,7 +50,7 @@ const BoxWrapper = styled.article`
   flex-direction: column;
 
   width: 86rem;
-  padding: 3.2rem 2.3rem 0 3.4rem;
+  padding: 3.2rem 2.3rem 0rem 3.4rem;
   margin-bottom: 3rem;
 
   border: 1px solid #bbb;
@@ -149,14 +149,14 @@ const SubjectName = styled.div`
   font-size: 1.6rem;
 
   :first-child {
-    margin-left: 9rem;
+    margin-left: 7rem;
   }
 
   :nth-child(2) {
-    margin-left: 27rem;
+    margin-left: 23rem;
   }
 
   :nth-child(3) {
-    margin-left: 11rem;
+    margin-left: 13rem;
   }
 `;

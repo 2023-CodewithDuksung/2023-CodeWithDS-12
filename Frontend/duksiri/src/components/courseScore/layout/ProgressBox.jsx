@@ -51,7 +51,7 @@ const TitleWrapper = styled.div`
 const TitleContainer = styled.div`
   display: flex;
 
-  margin-bottom: 3.35rem;
+  margin-bottom: 3.15rem;
 `;
 
 const Title = styled.h1`
