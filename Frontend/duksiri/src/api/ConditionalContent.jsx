@@ -276,7 +276,7 @@ export default function ConditionalContent() {
                   {selectedDifficulty > 10 ? (selectedDifficulty > 15 ? '힘듦' : '적정') : '쉬움'}
                 </ToggleName2>
                 <DifficultyDetail>
-                  <li>어쩌구</li>
+                  <li>교과목 수준 및 졸업 요건 관련 여부에 따라 강의마다 차등적 점수가 매겨졌습니다.</li>
                   <li>점수의 총 합에 따라 해당 시간표의 쉬움 / 적정 / 힘듦의 난이도가 제공됩니다.</li>
                 </DifficultyDetail>
               </ConditionalPlanHeaderWrapper>
