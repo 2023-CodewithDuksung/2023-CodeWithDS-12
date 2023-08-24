@@ -1,6 +1,4 @@
 import { styled } from 'styled-components';
-import { USER_DATA } from '../../../core/mockCourseScore';
-import { useEffect } from 'react';
 
 export default function ElectiveSplitProgressBox({
   nowscore,
