@@ -15,7 +15,8 @@ export default function ConditionalContent() {
   const [selectedPlans, setSelectedPlans] = useState([]);
   const [selectedScore, setSelectedScore] = useState(0);
   const [selectedDifficulty, setSelectedDifficulty] = useState(0);
-  let responseSubjects, dummyDataWithTime;
+  const [responseSubjects, setResponseSubjects] = useState();
+  let dummyDataWithTime;
 
   function handlePlanAdd(plan) {
     if (!selectedPlans.some((selectedPlan) => selectedPlan.subject_name === plan.subject_name)) {
@@ -101,8 +102,9 @@ export default function ConditionalContent() {
       axios
         .get(`http://localhost:8080/duxby/smartschedule?${queryParams}`)
         .then((response) => {
-          console.log('서버에서 받은 데이터:', response.data);
-          responseSubjects = response.data.subject;
+          console.log(`http://localhost:8080/duxby/smartschedule?${queryParams}`);
+          setResponseSubjects(response.data.subject);
+          console.log(response.data.subject);
           dummyDataWithTime = responseSubjects.map((data, index) => ({
             ...data,
             subject_time: timeList[index],

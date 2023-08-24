@@ -1,9 +1,18 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import DuksungLogoWithTitle from '../../assets/icon/DuksungLogoWithTitle.png';
+import profileImg from '../../img/profile.svg';
 
 export default function Header() {
-  const TOP_NAV_LIST = ['김덕성', '덕성홈페이지', '이클래스', '포탈'];
+  const Profile = () => {
+    return (
+      <ProfileName>
+        김덕성
+        <img src={profileImg} width={'30rem'} />
+      </ProfileName>
+    );
+  };
+  const TOP_NAV_LIST = [<Profile />, '덕성홈페이지', '이클래스', '포탈'];
 
   function handleMoveSite(site) {
     switch (site) {
@@ -32,6 +41,13 @@ export default function Header() {
     </HeaderWrapper>
   );
 }
+
+const ProfileName = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-items: center;
+`;
 
 const HeaderWrapper = styled.div`
   display: flex;

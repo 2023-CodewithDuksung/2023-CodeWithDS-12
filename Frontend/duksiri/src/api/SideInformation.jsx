@@ -1,14 +1,14 @@
 import { styled } from 'styled-components';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function SideInformation() {
-  let responsePersondata;
+  const [responsePersondata, setResponsePersondata] = useState();
   useEffect(() => {
-    fetch('http://localhost:8080/duxby/smartschedule')
-      .then((response) => response.json())
+    axios
+      .get('http://localhost:8080/duxby/smartschedule')
       .then((infoData) => {
-        console.log(infoData);
-        responsePersondata = responseJson.persondata;
+        setResponsePersondata(infoData.data.persondata);
       })
       .catch((error) => {
         console.error('에러 발생:', error);
@@ -48,23 +48,21 @@ export default function SideInformation() {
         <tr></tr>
         <InfoTh>교양</InfoTh>
         <InfoTd>
-          <InfoTd>
-            {responsePersondata && responsePersondata.userStudentNumber < 20210000
-              ? (responsePersondata && responsePersondata.a1Credit >= 3 ? 1 : 0) +
-                  (responsePersondata && responsePersondata.a2Credit >= 3 ? 1 : 0) +
-                  (responsePersondata && responsePersondata.a3Credit >= 3 ? 1 : 0) >=
-                2
-                ? ''
-                : (responsePersondata && responsePersondata.a1Credit < 3 ? 'A1영역 미이수 ' : '') +
-                  (responsePersondata && peresponsePersondatasondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
-                  (responsePersondata && responsePersondata.a3Credit < 3 ? 'A3영역 미이수 ' : '')
+          {responsePersondata && responsePersondata.userStudentNumber < 20210000
+            ? (responsePersondata && responsePersondata.a1Credit >= 3 ? 1 : 0) +
+                (responsePersondata && responsePersondata.a2Credit >= 3 ? 1 : 0) +
+                (responsePersondata && responsePersondata.a3Credit >= 3 ? 1 : 0) >=
+              2
+              ? ''
               : (responsePersondata && responsePersondata.a1Credit < 3 ? 'A1영역 미이수 ' : '') +
-                (responsePersondata && responsePersondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
-                (responsePersondata && responsePersondata.a3Credit < 3 ? 'A3영역 미이수' : '')}
-            {responsePersondata && responsePersondata.bcredit < 3 ? 'B영역 미이수 ' : ''}
-            {responsePersondata && responsePersondata.bcredit < 3 ? 'C영역 미이수' : ''}
-            {responsePersondata && responsePersondata.selfDesignCredit < 6 ? '자기설계 미이수 ' : ''}
-          </InfoTd>
+                (responsePersondata && peresponsePersondatasondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
+                (responsePersondata && responsePersondata.a3Credit < 3 ? 'A3영역 미이수 ' : '')
+            : (responsePersondata && responsePersondata.a1Credit < 3 ? 'A1영역 미이수 ' : '') +
+              (responsePersondata && responsePersondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
+              (responsePersondata && responsePersondata.a3Credit < 3 ? 'A3영역 미이수' : '')}
+          {responsePersondata && responsePersondata.bcredit < 3 ? 'B영역 미이수 ' : ''}
+          {responsePersondata && responsePersondata.bcredit < 3 ? 'C영역 미이수' : ''}
+          {responsePersondata && responsePersondata.selfDesignCredit < 6 ? '자기설계 미이수 ' : ''}
         </InfoTd>
         <tr></tr>
         <InfoTh>전탐</InfoTh>
