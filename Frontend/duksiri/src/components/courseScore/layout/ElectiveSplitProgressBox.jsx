@@ -37,8 +37,10 @@ export default function ElectiveSplitProgressBox({
         <span>학문의 융합 (21)</span>
         <span>자기설계•개발 (6)</span>
       </SubjectName>
-      <ToggleText onClick={handleOpenToggle}> ▼ 상세 내역 보기 </ToggleText>
-      {isToggle && <ElectiveList type="GESubject" />}
+      <button onClick={handleOpenToggle}>
+        <ToggleText> ▼ 상세 내역 보기 </ToggleText>
+        {isToggle && <ElectiveList type="GESubject" />}
+      </button>
     </BoxWrapper>
   );
 }

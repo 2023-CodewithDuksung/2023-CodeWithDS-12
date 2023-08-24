@@ -22,9 +22,10 @@ export default function ProgressBox({ nowscore, title, majorname, maxscore, prog
       <ProgressBarWrapper>
         <ProgressBarBox progressscore={progressscore} />
       </ProgressBarWrapper>
-
-      <ToggleText onClick={handleOpenToggle}> ▼ 상세 내역 보기 </ToggleText>
-      {isToggle && <ElectiveList type={type} />}
+      <button onClick={handleOpenToggle}>
+        <ToggleText> ▼ 상세 내역 보기 </ToggleText>
+        {isToggle && <ElectiveList type={type} />}
+      </button>
     </BoxWrapper>
   );
 }
@@ -74,8 +75,7 @@ const CourseNum = styled.h1`
   font-weight: 700;
   font-size: 2rem;
 `;
-
-const ToggleText = styled.button`
+const ToggleText = styled.h6`
   display: flex;
   justify-content: flex-end;
 
