@@ -5,12 +5,12 @@ import { styled } from 'styled-components';
 export default function CourseScore() {
   return (
     <CourseWrapper>
-      <Title>Title</Title>
+      <Title>이수 내역</Title>
       <BoxContainer>
         <ProgressBox />
-        <TestMiniBox />
+        {/* <TestMiniBox /> */}
         <ProgressBox />
-        <TestMiniBox />
+        {/* <TestMiniBox /> */}
       </BoxContainer>
     </CourseWrapper>
   );
@@ -20,9 +20,9 @@ const CourseWrapper = styled.main`
   padding: 5rem;
 `;
 const Title = styled.h1`
-  margin-bottom: 5.7rem;
+  margin-bottom: 3rem;
 
-  color: #000;
+  color: #22bcbc;
   font-weight: 700;
   font-size: 3rem;
 `;
