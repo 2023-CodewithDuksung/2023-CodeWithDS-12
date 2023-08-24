@@ -11,24 +11,33 @@ export default function CourseScore() {
   const userData = USER_DATA.persondata;
   const [isOpen, setIsOpen] = useState(true);
 
+  function handleClickToggle() {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <CourseWrapper>
       <Title>이수 내역</Title>
       <BoxContainer>
         <GraduateComponent userData={userData} />
-        <IconWrapper>
+        <IconWrapper isopen={isOpen} onClick={handleClickToggle}>
           <UnderTriangleIcon />
         </IconWrapper>
-        <ElectiveClass userData={userData} />
-        <FirstMajor userData={userData} />
-        <SecondMajor userData={userData} />
+        {isOpen && (
+          <>
+            <ElectiveClass userData={userData} />
+            <FirstMajor userData={userData} />
+            <SecondMajor userData={userData} />
+          </>
+        )}
       </BoxContainer>
     </CourseWrapper>
   );
 }
 
 const CourseWrapper = styled.main`
-  padding: 5rem;
+  padding-top: 5rem;
+  padding-left: 5rem;
 `;
 const Title = styled.h1`
   margin-bottom: 3rem;
@@ -42,13 +51,17 @@ const BoxContainer = styled.article`
   display: flex;
   flex-direction: column;
 `;
-const IconWrapper = styled.div`
+const IconWrapper = styled.button`
   display: flex;
   justify-content: center;
 
-  /* align-items: center; */
+  width: ${(props) => props.progressscore}%;
 
-  margin-bottom: 2.7rem;
+  /* transition: ease 1s; */
+
+  transform: ${({ isopen }) => isopen && 'rotate(180deg)'};
+
+  margin: 2.7rem;
 `;
 const UnderTriangleIcon = styled(UnderTriangle)`
   width: 3rem;

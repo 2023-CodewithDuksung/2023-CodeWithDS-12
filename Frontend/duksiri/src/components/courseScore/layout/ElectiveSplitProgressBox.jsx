@@ -119,7 +119,6 @@ const SplitLineA = styled.div`
   position: relative;
   left: ${({ lefta }) => lefta}rem;
 
-  height: 500px;
   height: 100%;
 
   border-left: 0.2rem solid #eee;
@@ -130,7 +129,6 @@ const SplitLineB = styled.div`
   position: relative;
   left: ${({ leftb }) => leftb}rem;
 
-  height: 500px;
   height: 100%;
 
   border-left: 0.2rem solid #eee;

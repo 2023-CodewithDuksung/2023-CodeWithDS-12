@@ -48,7 +48,8 @@ export default function ElectiveClass({ userData }) {
 const ScoreBoxWrapper = styled.div`
   display: flex;
 
-  width: 158rem;
+  width: 150rem;
+  margin: 0;
 `;
 
 const TableBoxContainer = styled.div`

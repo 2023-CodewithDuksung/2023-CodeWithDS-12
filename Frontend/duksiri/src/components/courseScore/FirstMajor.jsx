@@ -64,7 +64,7 @@ export default function FirstMajor({ userData }) {
 const ScoreBoxWrapper = styled.div`
   display: flex;
 
-  width: 158rem;
+  width: 150rem;
 `;
 
 const TableBoxContainer = styled.div`

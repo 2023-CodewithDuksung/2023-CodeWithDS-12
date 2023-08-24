@@ -13,17 +13,18 @@ const Table = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  align-content: center;
 
   width: ${({ width }) => width};
   height: ${({ height }) => height};
-  size: ${({ size }) => size};
 
   border: 1px solid #bbb;
   background-color: #f4f4f4;
   color: ${({ color }) => color};
   font-weight: ${({ weight }) => weight};
   font-size: 1.6rem;
+
+  align-content: center;
+  size: ${({ size }) => size};
 `;
 
 const SubContent = styled.span`
