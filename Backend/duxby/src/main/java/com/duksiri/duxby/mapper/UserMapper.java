@@ -3,7 +3,6 @@ package com.duksiri.duxby.mapper;
 import com.duksiri.duxby.dto.UserDTO;
 import com.duksiri.duxby.entity.UserEntity;
 
-
 public class UserMapper {
 
     // UserEntity를 UserDTO로 변환하는 메서드
@@ -25,8 +24,12 @@ public class UserMapper {
                 .baseMajorCredit(userEntity.getBaseMajorCredit())
                 .firstMajorCredit(userEntity.getFirstMajorCredit())
                 .secondMajorCredit(userEntity.getSecondMajorCredit())
+                .restCredit(userEntity.getRestCredit())
+                .restSemester(userEntity.getRestSemester())
+                .semester(userEntity.getSemester())
                 .GECredit(userEntity.getGECredit())
                 .totalCredit(userEntity.getTotalCredit())
+                .gradePointAverage(userEntity.getGradePointAverage())
                 .teamPlay(userEntity.isTeamPlay())
                 .presentation(userEntity.isPresentation())
                 .discussion(userEntity.isDiscussion())
@@ -52,8 +55,12 @@ public class UserMapper {
                 .baseMajorCredit(userDTO.getBaseMajorCredit())
                 .firstMajorCredit(userDTO.getFirstMajorCredit())
                 .secondMajorCredit(userDTO.getSecondMajorCredit())
+                .restCredit(userDTO.getRestCredit())
+                .restSemester(userDTO.getRestSemester())
+                .semester(userDTO.getSemester())
                 .GECredit(userDTO.getGECredit())
                 .totalCredit(userDTO.getTotalCredit())
+                .gradePointAverage(userDTO.getGradePointAverage())
                 .teamPlay(userDTO.isTeamPlay())
                 .presentation(userDTO.isPresentation())
                 .discussion(userDTO.isDiscussion())

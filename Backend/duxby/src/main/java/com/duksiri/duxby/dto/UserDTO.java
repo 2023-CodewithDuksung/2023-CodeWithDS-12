@@ -26,8 +26,12 @@ public class UserDTO {
     private int baseMajorCredit;
     private int firstMajorCredit;
     private int secondMajorCredit;
+    private int restCredit;
+    private int restSemester;
+    private int semester;
     private int GECredit;
     private int totalCredit;
+    private float gradePointAverage;
     private boolean teamPlay;
     private boolean presentation;
     private boolean discussion;
