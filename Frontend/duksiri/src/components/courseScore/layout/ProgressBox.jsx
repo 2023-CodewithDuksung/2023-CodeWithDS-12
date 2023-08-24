@@ -90,7 +90,6 @@ const ProgressBarWrapper = styled.section`
   overflow: hidden;
 
   width: 100%;
-  height: 4.15rem;
 
   background-color: #eee;
 `;

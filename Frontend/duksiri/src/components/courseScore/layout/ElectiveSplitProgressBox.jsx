@@ -92,7 +92,7 @@ const CourseNum = styled.h1`
   font-size: 2rem;
 `;
 
-const ToggleText = styled.button`
+const ToggleText = styled.h6`
   display: flex;
   justify-content: flex-end;
 
