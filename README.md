@@ -32,14 +32,14 @@
         </td>
         <td style="min-width: 150px;">
             <a href="https://github.com/imddoy">
-              <img src=![KakaoTalk_Photo_2023-08-20-23-15-56](https://github.com/2023-CodewithDuksung/2023-CodeWithDS-12/assets/65286685/d5c8cbfb-7931-49bf-a34b-a952fdabf3e6) width="100">
+              <img src='https://github.com/2023-CodewithDuksung/2023-CodeWithDS-12/assets/65286685/d5c8cbfb-7931-49bf-a34b-a952fdabf3e6' width="100">
               <br />
               <b>김채현</b>
             </a> 
         </td>
         <td style="min-width: 150px;">
             <a href="https://github.com/dksrkn">
-              <img src="![KakaoTalk_Photo_2023-08-20-23-15-50](https://github.com/2023-CodewithDuksung/2023-CodeWithDS-12/assets/65286685/295ff216-f764-4239-b545-39bea24c515a)" width="100">
+              <img src="https://github.com/2023-CodewithDuksung/2023-CodeWithDS-12/assets/65286685/295ff216-f764-4239-b545-39bea24c515a" width="100">
               <br />
               <b>안가은</b>
             </a>
