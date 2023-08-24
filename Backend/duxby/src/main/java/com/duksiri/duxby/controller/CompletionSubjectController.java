@@ -7,10 +7,7 @@ import com.duksiri.duxby.service.TakeSubjectService;
 import com.duksiri.duxby.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
 
@@ -26,7 +23,7 @@ public class CompletionSubjectController {
     private final TakeSubjectService takeSubjectService;
 
     @GetMapping("/completioninfo")
-    public Map<String, Object> getCompletionSubject(@RequestBody Map<String, String> requestMap) {
+    public Map<String, Object> getCompletionSubject(@RequestParam Map<String, String> requestMap) {
 
         // responseBody
         Map<String, Object> response = new HashMap<>();

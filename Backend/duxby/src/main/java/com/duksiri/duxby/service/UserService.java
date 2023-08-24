@@ -35,6 +35,9 @@ public class UserService {
         userDTO.setBaseMajorCredit(15);
         userDTO.setFirstMajorCredit(24);
         userDTO.setSecondMajorCredit(18);
+        userDTO.setRestCredit(31);
+        userDTO.setRestSemester(3);
+        userDTO.setSemester(6);
         userDTO.setGECredit(42);
         userDTO.setTotalCredit(99);
         userDTO.setGradePointAverage((float) 3.8);

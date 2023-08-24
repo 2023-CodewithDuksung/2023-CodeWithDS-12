@@ -45,11 +45,17 @@ public class QUserEntity extends EntityPathBase<UserEntity> {
 
     public final NumberPath<Integer> requiredCourseCredit = createNumber("requiredCourseCredit", Integer.class);
 
+    public final NumberPath<Integer> restCredit = createNumber("restCredit", Integer.class);
+
+    public final NumberPath<Integer> restSemester = createNumber("restSemester", Integer.class);
+
     public final NumberPath<Integer> secondMajorCredit = createNumber("secondMajorCredit", Integer.class);
 
     public final BooleanPath secondMajorHard = createBoolean("secondMajorHard");
 
     public final NumberPath<Integer> selfDesignCredit = createNumber("selfDesignCredit", Integer.class);
+
+    public final NumberPath<Integer> semester = createNumber("semester", Integer.class);
 
     public final BooleanPath teamPlay = createBoolean("teamPlay");
 

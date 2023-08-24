@@ -66,6 +66,15 @@ public class UserEntity {
     private Integer secondMajorCredit;
 
     @Column
+    private Integer restCredit;
+
+    @Column
+    private Integer restSemester;
+
+    @Column
+    private Integer semester;
+
+    @Column
     private Integer GECredit;
 
     @Column
