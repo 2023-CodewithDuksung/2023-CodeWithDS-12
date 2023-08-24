@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 export default function ConditionalSelectBox({ optionData, setSelectedValue }) {
   const [currentValue, setCurrentValue] = useState('선택');
   const [showOptions, setShowOptions] = useState(false);
   const [isIconRotated, setIsIconRotated] = useState(false);
-
+  useEffect(() => {
+    if (optionData.find((data) => data.value === '전체')) {
+      setCurrentValue('전체');
+    }
+  }, []);
   function handleOnChangeSelectValue(e) {
     const newValue = e.target.getAttribute('value');
     setCurrentValue(newValue);
@@ -15,6 +19,7 @@ export default function ConditionalSelectBox({ optionData, setSelectedValue }) {
     setIsIconRotated((prev) => !prev);
     setShowOptions((prev) => !prev);
   }
+
   return (
     <ConditionalSelectContianer onClick={handleOptions} isRotated={isIconRotated}>
       {' '}
