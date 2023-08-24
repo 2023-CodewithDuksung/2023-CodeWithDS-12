@@ -233,7 +233,7 @@ const ConditionalOption = styled.p`
 const ConditionalSubmit = styled.div`
   width: 6rem;
   height: 4rem;
-  background: #bbb;
+  background: #808080;
 
   display: flex;
   justify-content: center;
