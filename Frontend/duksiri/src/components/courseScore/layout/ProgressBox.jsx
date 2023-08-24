@@ -17,7 +17,7 @@ export default function ProgressBox({ nowscore, title, majorname, maxscore, prog
       <ProgressBarWrapper>
         <ProgressBarBox progressscore={progressscore} />
       </ProgressBarWrapper>
-      <ToggleText> 상세 내역 보기 </ToggleText>
+      <ToggleText> ▼ 상세 내역 보기 </ToggleText>
     </BoxWrapper>
   );
 }

@@ -118,7 +118,6 @@ const SplitLineB = styled.div`
 `;
 
 const SplitLineC = styled.div`
-  /* border-color: #eee; */
   position: relative;
   left: ${({ leftc }) => leftc}rem;
 
