@@ -39,7 +39,7 @@ public class UserService {
         userDTO.setRestSemester(3);
         userDTO.setSemester(6);
         userDTO.setGECredit(42);
-        userDTO.setTotalCredit(99);
+        userDTO.setTotalCredit(102);
         userDTO.setGradePointAverage((float) 3.8);
         userDTO.setTeamPlay(false);
         userDTO.setPresentation(true);
