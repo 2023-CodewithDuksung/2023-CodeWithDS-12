@@ -6,14 +6,13 @@ export default function ConditionalSelectBox({ optionData, setSelectedValue }) {
   const [showOptions, setShowOptions] = useState(false);
   const [isIconRotated, setIsIconRotated] = useState(false);
   useEffect(() => {
-    if (optionData.find((data) => data.value === '전체')) {
+    if (optionData.find((data) => data.text === '전체')) {
       setCurrentValue('전체');
     }
   }, []);
   function handleOnChangeSelectValue(e) {
-    const newValue = e.target.getAttribute('value');
-    setCurrentValue(newValue);
-    setSelectedValue(newValue);
+    setCurrentValue(e.target.getAttribute('text'));
+    setSelectedValue(e.target.getAttribute('value'));
   }
   function handleOptions() {
     setIsIconRotated((prev) => !prev);
@@ -27,8 +26,8 @@ export default function ConditionalSelectBox({ optionData, setSelectedValue }) {
       <SelectOptions show={showOptions}>
         {optionData &&
           optionData.map((data) => (
-            <Option key={data.key} value={data.value} onClick={handleOnChangeSelectValue}>
-              {data.value}
+            <Option key={data.key} value={data.value} text={data.text} onClick={handleOnChangeSelectValue}>
+              {data.text}
             </Option>
           ))}
       </SelectOptions>

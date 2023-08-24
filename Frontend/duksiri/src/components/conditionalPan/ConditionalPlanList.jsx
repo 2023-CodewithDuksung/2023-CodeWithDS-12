@@ -1,26 +1,47 @@
 import React from 'react';
 import { styled } from 'styled-components';
 
-export default function ConditionalPlanList({ plan, selectedPlans, handlePlanAdd, handlePlanRemove, addMode }) {
-  const isPlanSelected = selectedPlans?.some((selectedPlan) => selectedPlan.subjectName === plan.subjectName);
+export default function ConditionalPlanList({
+  plan,
+  selectedPlans,
+  handlePlanAdd,
+  handlePlanRemove,
+  addMode,
+  selectedScore,
+  subjectTime,
+}) {
+  const isPlanSelected = selectedPlans?.some((selectedPlan) => selectedPlan.subject_name === plan.subject_name);
   const handleActionClick = () => {
     if (addMode) {
-      handlePlanAdd(plan);
-      console.log('추가요');
+      if (selectedScore + plan.credit < 24) {
+        if (selectedPlans.some((selectedPlan) => selectedPlan.subject_time === plan.subject_time)) {
+          alert('시간이 겹치는 강의가 존재니다.');
+        } else {
+          handlePlanAdd(plan);
+          console.log('추가요');
+        }
+      } else {
+        alert('가능한 학점을 초과하였습니다.');
+      }
     } else {
       handlePlanRemove(plan);
     }
   };
-  console.log();
   return (
     <PlanListContainer>
-      <PlanTitle>{plan.subjectName}</PlanTitle>
+      <PlanTitle>{plan.subject_name}</PlanTitle>
       <PlanHeader>
         <PlanProfessor>{plan.professor}</PlanProfessor>
-        <PlanTime>{plan.subjectTime}</PlanTime>
+        <PlanTime>{plan.subject_time}</PlanTime>
+        <PlanTime>{plan.grade}학년</PlanTime>
+        <PlanTime>{plan.credit}학점</PlanTime>
       </PlanHeader>
       <PlanPre>선수과목</PlanPre>
-      <PlanButton onClick={handleActionClick} isPlanSelected={isPlanSelected} addMode={addMode}>
+      <PlanButton
+        onClick={handleActionClick}
+        isPlanSelected={isPlanSelected}
+        subjectTime={subjectTime}
+        addMode={addMode}>
         {addMode ? '담기' : '빼기'}
       </PlanButton>
     </PlanListContainer>

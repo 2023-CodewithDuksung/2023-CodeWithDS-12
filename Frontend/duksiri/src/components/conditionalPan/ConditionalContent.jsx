@@ -30,49 +30,153 @@ export default function ConditionalContent() {
   //   setIsDebateChecked((prevState) => !prevState);
   // }
   function handlePlanAdd(plan) {
-    if (!selectedPlans.some((selectedPlan) => selectedPlan.subjectName === plan.subjectName)) {
-      setSelectedScore((prevScore) => prevScore + parseInt(plan.score));
-      setSelectedDifficulty((prevDifficulty) => prevDifficulty + parseInt(plan.difficulty));
+    if (!selectedPlans.some((selectedPlan) => selectedPlan.subject_name === plan.subject_name)) {
+      setSelectedScore((prevScore) => prevScore + parseInt(plan.credit));
+      setSelectedDifficulty((prevDifficulty) => prevDifficulty + parseInt(plan.subject_difficulty));
       setSelectedPlans((prevPlans) => [...prevPlans, plan]);
     }
   }
   function handlePlanRemove(planToRemove) {
-    setSelectedScore((prevScore) => prevScore - parseInt(planToRemove.score));
-    setSelectedDifficulty((prevDifficulty) => prevDifficulty - parseInt(planToRemove.difficulty));
+    setSelectedScore((prevScore) => prevScore - parseInt(planToRemove.credit));
+    setSelectedDifficulty((prevDifficulty) => prevDifficulty - parseInt(planToRemove.subject_difficulty));
     setSelectedPlans((prevPlans) => prevPlans.filter((plan) => plan !== planToRemove));
   }
+  const timeList = [
+    '화C/차137, 목E/차137',
+    '화B/차137, 월A/차137',
+    '화C/차137, 목E/차137',
+    '수D/차137, 금F/차137',
+    '화C/차337, 목H/차137',
+    '화I/차137, 금J/차137',
+    '월K/차137, 목L/차137',
+    '화M/차137, 수N/차137',
+    '월O/차137, 금P/차137',
+    '수Q/차137, 목R/차137',
+    '월S/차137, 금T/차137',
+    '화C/차137, 목E/차137',
+    '화B/차137, 월A/차137',
+    '수D/차137, 금F/차137',
+    '수G/차137, 목H/차137',
+    '화I/차137, 금J/차137',
+    '월K/차137, 목L/차137',
+    '화M/차137, 수N/차137',
+    '월O/차137, 금P/차137',
+    '수Q/차137, 목R/차137',
+    '월S/차137, 금T/차137',
+  ];
+
+  console.log(timeList);
+
+  const dummyData = [
+    {
+      subject_code: '004745',
+      year: 2023,
+      grade: '3',
+      discussion: 0,
+      geclassification: '',
+      presentation: 0,
+      major: '컴퓨터공학전공',
+      team_play: 0,
+      subject_classification: '전선',
+      subject_hour: 0,
+      subject_rating: 3.45,
+      subject_name: '멀티미디어프로그래밍',
+      semester: 2,
+      credit: 8,
+      professor: '이경미',
+      subject_difficulty: 4.0,
+    },
+    {
+      subject_code: '004747',
+      year: 2023,
+      grade: '3',
+      subject_rating: 2.9,
+      discussion: 0,
+      professor: '이주영',
+      geclassification: '',
+      presentation: 0,
+      major: '컴퓨터공학전공',
+      team_play: 0,
+      subject_classification: '전선',
+      subject_hour: 0,
+      subject_name: '알고리즘',
+      semester: 2,
+      credit: 20,
+      subject_difficulty: 4.0,
+    },
+    {
+      year: 2023,
+      grade: '3',
+      professor: '박우창',
+      discussion: 0,
+      subject_name: '데이터베이스프로그래밍',
+      geclassification: '',
+      subject_rating: 3.09,
+      presentation: 0,
+      major: '컴퓨터공학전공',
+      team_play: 0,
+      subject_classification: '전선',
+      subject_hour: 0,
+      semester: 2,
+      subject_code: '004750',
+      credit: 3,
+      subject_difficulty: 4.0,
+    },
+    {
+      subject_name: '모바일앱프로그래밍',
+      year: 2023,
+      grade: '3',
+      subject_rating: 4.0,
+      subject_code: '005425',
+      discussion: 0,
+      geclassification: '',
+      subject_difficulty: 4.5,
+      presentation: 0,
+      major: '컴퓨터공학전공',
+      team_play: 0,
+      subject_classification: '전선',
+      subject_hour: 0,
+      semester: 1,
+      credit: 3,
+      professor: '이경미',
+    },
+  ];
+  const dummyDataWithTime = dummyData.map((data, index) => ({
+    ...data,
+    subject_time: timeList[index],
+  }));
 
   const optionCompleteData = [
-    { key: 1, value: '전공' },
-    { key: 2, value: '교양' },
+    { key: 1, text: '전공', value: '전공' },
+    { key: 2, text: '교양', value: '교양' },
   ];
   const optionAreaData = [
-    { key: 1, value: '컴퓨터공학전공' },
-    { key: 2, value: 'IT미디어공학전공' },
-    { key: 3, value: '사이버보안전공' },
-    { key: 4, value: '소프트웨어전공' },
-    { key: 5, value: '시각디자인전공' },
+    { key: 1, text: '컴퓨터공학전공', value: '컴퓨터공학전공' },
+    { key: 2, text: 'IT미디어공학전공', value: 'IT미디어공학전공' },
+    { key: 3, text: '사이버보안전공', value: '사이버보안전공' },
+    { key: 4, text: '소프트웨어전공', value: '소프트웨어전공' },
+    { key: 5, text: '시각디자인전공', value: '시각디자인전공' },
   ];
 
   const optionGradeData = [
-    { key: 1, value: '2학년' },
-    { key: 2, value: '3학년' },
-    { key: 3, value: '4학년' },
+    { key: 1, text: '2학년', value: 2 },
+    { key: 2, text: '3학년', value: 3 },
+    { key: 3, text: '4학년', value: 4 },
   ];
   const optionPTData = [
-    { key: 1, value: '전체' },
-    { key: 2, value: '있음' },
-    { key: 3, value: '없음' },
+    { key: 1, text: '전체', value: true },
+    { key: 2, text: '있음', value: true },
+    { key: 3, text: '없음', value: false },
   ];
   const optionTeamData = [
-    { key: 1, value: '전체' },
-    { key: 2, value: '있음' },
-    { key: 3, value: '없음' },
+    { key: 1, text: '전체', value: true },
+    { key: 2, text: '있음', value: true },
+    { key: 3, text: '없음', value: false },
   ];
   const optionDebateData = [
-    { key: 1, value: '전체' },
-    { key: 2, value: '있음' },
-    { key: 3, value: '없음' },
+    { key: 1, text: '전체', value: true },
+    { key: 2, text: '있음', value: true },
+    { key: 3, text: '없음', value: false },
   ];
 
   function handleFetchData() {
@@ -131,7 +235,7 @@ export default function ConditionalContent() {
         </ConditionalOptionWrapper>
         <ConditionalSubmit onClick={handleFetchData}>조회</ConditionalSubmit>
       </ConditionalOptionContianer>
-      {responseSubjects && (
+      {dummyDataWithTime && (
         <ConditionalPlanWrapper>
           <ConditionalPlanBox>
             {/* <ConditionalPlanHeaderContainer>
@@ -151,13 +255,15 @@ export default function ConditionalContent() {
               <ToggleSlider />
             </ToggleSwitchWrapper>
           </ConditionalPlanHeaderContainer> */}
-            {responseSubjects &&
-              responseSubjects.map((plan, index) => (
+            {dummyDataWithTime &&
+              dummyDataWithTime.map((plan, index) => (
                 <ConditionalPlanList
                   key={index}
                   plan={plan}
                   handlePlanAdd={handlePlanAdd}
                   selectedPlans={selectedPlans}
+                  selectedScore={selectedScore}
+                  subjectTime={timeList[index]}
                   addMode={true}
                 />
               ))}
