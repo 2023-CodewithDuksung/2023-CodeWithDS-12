@@ -59,7 +59,7 @@ const IconWrapper = styled.button`
 
   /* transition: ease 1s; */
 
-  transform: ${({ isopen }) => isopen && 'rotate(180deg)'};
+  transform: ${(props) => props.isopen && 'rotate(180deg)'};
 
   margin: 2.7rem;
 `;

@@ -16,6 +16,7 @@ export default function SecondMajor({ userData }) {
         maxscore="36"
         progressscore={progressscore}
         majorcolor="#F16D9A"
+        type="secondMajorSubject"
       />
 
       <TableBoxContainer>

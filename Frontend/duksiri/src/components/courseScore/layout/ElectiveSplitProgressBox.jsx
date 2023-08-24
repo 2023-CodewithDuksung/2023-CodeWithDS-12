@@ -1,4 +1,6 @@
 import { styled } from 'styled-components';
+import ElectiveList from '../ClassList/ElectiveList';
+import { useState } from 'react';
 
 export default function ElectiveSplitProgressBox({
   nowscore,
@@ -9,6 +11,10 @@ export default function ElectiveSplitProgressBox({
   lefta,
   leftb,
 }) {
+  const [isToggle, setIsToggle] = useState(false);
+  function handleOpenToggle() {
+    setIsToggle(!isToggle);
+  }
   return (
     <BoxWrapper>
       <TitleWrapper>
@@ -31,7 +37,8 @@ export default function ElectiveSplitProgressBox({
         <span>학문의 융합 (21)</span>
         <span>자기설계•개발 (6)</span>
       </SubjectName>
-      <ToggleText> ▼ 상세 내역 보기 </ToggleText>
+      <ToggleText onClick={handleOpenToggle}> ▼ 상세 내역 보기 </ToggleText>
+      {isToggle && <ElectiveList type="GESubject" />}
     </BoxWrapper>
   );
 }
@@ -41,7 +48,6 @@ const BoxWrapper = styled.article`
   flex-direction: column;
 
   width: 86rem;
-  height: 15rem;
   padding: 3.2rem 2.3rem 0 3.4rem;
   margin-bottom: 3rem;
 
@@ -84,16 +90,15 @@ const CourseNum = styled.h1`
   font-size: 2rem;
 `;
 
-const ToggleText = styled.h6`
+const ToggleText = styled.button`
   display: flex;
   justify-content: flex-end;
 
-  margin-top: 2.5rem;
+  margin: 1.45rem 0;
 
   color: #000;
   font-weight: 400;
   font-size: 1.2rem;
-  align-content: end;
 `;
 
 const ProgressBarWrapper = styled.section`
@@ -115,7 +120,6 @@ const ProgressBarBox = styled.article`
 `;
 
 const SplitLineA = styled.div`
-  /* border-color: #eee; */
   position: relative;
   left: ${({ lefta }) => lefta}rem;
 
@@ -125,7 +129,6 @@ const SplitLineA = styled.div`
 `;
 
 const SplitLineB = styled.div`
-  /* border-color: #eee; */
   position: relative;
   left: ${({ leftb }) => leftb}rem;
 
