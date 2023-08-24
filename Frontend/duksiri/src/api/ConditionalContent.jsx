@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
-import ConditionalSelectBox from './ConditionalSelectBox';
-import ConditionalPlanList from './ConditionalPlanList';
-import Infosrc from './../../img/Info_icon.svg';
-import arrow_right from './../../img/arrow_right.svg';
+import ConditionalSelectBox from '../components/conditionalPan/ConditionalSelectBox';
+import ConditionalPlanList from '../components/conditionalPan/ConditionalPlanList';
+import arrow_right from './../img/arrow_right.svg';
+import axios from 'axios';
 
 export default function ConditionalContent() {
-  const [isPTChecked, setIsPTChecked] = useState(false);
-  const [isTeamChecked, setIsTeamChecked] = useState(false);
-  const [isDebateChecked, setIsDebateChecked] = useState(false);
   const [selectedComplete, setSelectedComplete] = useState('');
   const [selectedGrade, setSelectedGrade] = useState('');
   const [selectedMajor, setSelectedMajor] = useState('');
-  const [selectedPT, setSelectedPT] = useState('전체');
-  const [selectedTeam, setSelectedTeam] = useState('전체');
-  const [selectedDebate, setSelectedDebate] = useState('전체');
+  const [selectedPT, setSelectedPT] = useState(true);
+  const [selectedTeam, setSelectedTeam] = useState(true);
+  const [selectedDebate, setSelectedDebate] = useState(true);
   const [selectedPlans, setSelectedPlans] = useState([]);
   const [selectedScore, setSelectedScore] = useState(0);
   const [selectedDifficulty, setSelectedDifficulty] = useState(0);
-  let responseSubjects;
+  let responseSubjects, dummyDataWithTime;
 
   // function handlePTToggle() {
   //   setIsPTChecked((prevState) => !prevState);
@@ -64,8 +61,6 @@ export default function ConditionalContent() {
     '수Q/차137, 목R/차137',
     '월S/차137, 금T/차137',
   ];
-
-  console.log(timeList);
 
   const dummyData = [
     {
@@ -141,10 +136,6 @@ export default function ConditionalContent() {
       professor: '이경미',
     },
   ];
-  const dummyDataWithTime = dummyData.map((data, index) => ({
-    ...data,
-    subject_time: timeList[index],
-  }));
 
   const optionCompleteData = [
     { key: 1, text: '전공', value: '전공' },
@@ -193,17 +184,21 @@ export default function ConditionalContent() {
     } else {
       // console.log(`http://localhost:8080/duxby/smartschedule?${queryParams}`);
 
-      fetch(`http://localhost:8080/duxby/smartschedule?${queryParams}`)
-        .then((response) => response.json())
-        .then((responseJson) => {
-          console.log('서버에서 받은 데이터:', responseJson);
-          responseSubjects = responseJson.subject;
+      axios
+        .get(`http://localhost:8080/duxby/smartschedule?${queryParams}`)
+        .then((response) => {
+          console.log('서버에서 받은 데이터:', response.data);
+          responseSubjects = response.data.subject;
         })
         .catch((error) => {
           console.error('에러 발생:', error);
         });
     }
   }
+  dummyDataWithTime = dummyData.map((data, index) => ({
+    ...data,
+    subject_time: timeList[index],
+  }));
   return (
     <ConditionalContentWrapper>
       <ConditionalOptionContianer>

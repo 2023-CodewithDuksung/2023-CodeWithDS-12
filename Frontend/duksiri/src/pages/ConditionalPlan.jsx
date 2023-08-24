@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import ConditionalContent from './../components/conditionalPan/ConditionalContent';
-import SideInformation from './../components/common/SideInformation';
+import ConditionalContent from '../api/ConditionalContent';
+import SideInformation from '../api/SideInformation';
 
 export default function ConditionalPlan() {
   return (
