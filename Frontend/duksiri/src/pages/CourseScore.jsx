@@ -3,6 +3,7 @@ import { styled } from 'styled-components';
 import ElectiveClass from '../components/courseScore/ElectiveClass';
 import FirstMajor from '../components/courseScore/FirstMajor';
 import { USER_DATA } from '../core/mockCourseScore';
+import Graduate from '../components/courseScore/graduate';
 
 export default function CourseScore() {
   const userData = USER_DATA.persondata;
@@ -10,8 +11,9 @@ export default function CourseScore() {
     <CourseWrapper>
       <Title>이수 내역</Title>
       <BoxContainer>
+        <Graduate userData={userData} />
         <ElectiveClass userData={userData} />
-        <FirstMajor userData={userData} />
+        {/* <FirstMajor userData={userData} /> */}
       </BoxContainer>
     </CourseWrapper>
   );

@@ -2,12 +2,21 @@ import React from 'react';
 import { styled } from 'styled-components';
 import BoxLayout from './layout/BoxLayout';
 import ProgressBox from './layout/ProgressBox';
+import { calcProgress } from '../../core/Progress';
 
-export default function FirstMajor() {
+export default function FirstMajor({ userData }) {
+  const progressscore = calcProgress(userData.firstMajorCredit, 36);
   return (
     <ScoreBoxWrapper>
+      <ProgressBox
+        title="1전공"
+        majorname={userData.userFirstMajor}
+        nowscore={userData.firstMajorCredit}
+        maxscore="36"
+        progressscore={progressscore}
+      />
+
       <TableBoxContainer>
-        <ProgressBox />
         <BoxLayout width="20rem" height="7.5rem" color="black" size="2rem" weight="700" content="이수 학점" />
         <BoxLayout width="11.5rem" height="7.5rem" color="#22BCBC" size="1.6rem" weight="500" content="Y" />
         <BoxLayout

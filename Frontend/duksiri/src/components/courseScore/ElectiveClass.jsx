@@ -2,20 +2,14 @@ import React from 'react';
 import { styled } from 'styled-components';
 import ProgressBox from './layout/ProgressBox';
 import BoxLayout from './layout/BoxLayout';
+import { calcProgress } from '../../core/Progress';
 
 export default function ElectiveClass({ userData }) {
-  // console.log(userData);
-  const progressscore = Math.round((userData.firstMajorCredit / 36) * 100);
-
+  const progressscore = calcProgress(userData.gecredit, 36);
+  console.log(progressscore);
   return (
     <ScoreBoxWrapper>
-      <ProgressBox
-        title="1전공"
-        majorname={userData.userFirstMajor}
-        nowscore={userData.firstMajorCredit}
-        maxscore="36"
-        progressscore={progressscore}
-      />
+      <ProgressBox title="교양" nowscore={userData.gecredit} maxscore="36" progressscore={progressscore} />
 
       <TableBoxContainer>
         <BoxLayout width="20rem" height="7.5rem" color="black" size="2rem" weight="700" content="이수 학점" />
