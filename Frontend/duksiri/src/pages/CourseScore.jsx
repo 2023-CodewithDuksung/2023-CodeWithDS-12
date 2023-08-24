@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgressBox from '../components/careerPlan/ProgressBox';
+import ProgressBox from '../components/courseScore/ProgressBox';
 import { styled } from 'styled-components';
 
 export default function CourseScore() {
