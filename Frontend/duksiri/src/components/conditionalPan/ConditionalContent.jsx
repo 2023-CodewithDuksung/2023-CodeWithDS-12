@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 import ConditionalSelectBox from './ConditionalSelectBox';
 import ConditionalPlanList from './ConditionalPlanList';
@@ -7,7 +7,15 @@ export default function ConditionalContent() {
   const [isPTChecked, setIsPTChecked] = useState(false);
   const [isTeamChecked, setIsTeamChecked] = useState(false);
   const [isDebateChecked, setIsDebateChecked] = useState(false);
+  const [selectedComplete, setSelectedComplete] = useState('');
+  const [selectedGrade, setSelectedGrade] = useState('');
+  const [selectedMajor, setSelectedMajor] = useState('');
   const [selectedPlans, setSelectedPlans] = useState([]);
+  let responseSubjects;
+
+  useEffect(() => {
+    handleFetchData();
+  }, [isPTChecked, isTeamChecked, isDebateChecked]);
 
   function handlePTToggle() {
     setIsPTChecked((prevState) => !prevState);
@@ -26,13 +34,6 @@ export default function ConditionalContent() {
   function handlePlanRemove(planToRemove) {
     setSelectedPlans((prevPlans) => prevPlans.filter((plan) => plan !== planToRemove));
   }
-
-  // 더미 데이터
-  const dummyPlans = [
-    { title: '강의명 1', professor: '교수 1', time: '시간 1' },
-    { title: '강의명 2', professor: '교수 2', time: '시간 2' },
-    { title: '강의명 3', professor: '교수 3', time: '시간 3' },
-  ];
 
   const optionCompleteData = [
     { key: 1, value: '전공' },
@@ -54,24 +55,46 @@ export default function ConditionalContent() {
     { key: 3, value: '3학년' },
     { key: 4, value: '4학년' },
   ];
+
+  function handleFetchData() {
+    const queryParams = new URLSearchParams({
+      subjectClassification: selectedComplete,
+      major: selectedMajor,
+      grade: selectedGrade,
+      presentation: isPTChecked,
+      teamplay: isTeamChecked,
+      discussion: isDebateChecked,
+    });
+    // console.log(`http://localhost:8080/duxby/smartschedule?${queryParams}`);
+
+    fetch(`http://localhost:8080/duxby/smartschedule?${queryParams}`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log('서버에서 받은 데이터:', responseJson);
+        responseSubjects = responseJson.subject;
+      })
+      .catch((error) => {
+        console.error('에러 발생:', error);
+      });
+  }
   return (
     <ConditionalContentWrapper>
       <ConditionalOptionContianer>
         <ConditionalOptionWrapper>
           <ConditionalOptionBox>
             <ConditionalOption>이수 구분</ConditionalOption>
-            <ConditionalSelectBox optionData={optionCompleteData} />
+            <ConditionalSelectBox optionData={optionCompleteData} setSelectedValue={setSelectedComplete} />
           </ConditionalOptionBox>
           <ConditionalOptionBox>
             <ConditionalOption>전공/영역</ConditionalOption>
-            <ConditionalSelectBox optionData={optionAreaData} />
+            <ConditionalSelectBox optionData={optionAreaData} setSelectedValue={setSelectedMajor} />
           </ConditionalOptionBox>
           <ConditionalOptionBox>
             <ConditionalOption>학년</ConditionalOption>
-            <ConditionalSelectBox optionData={optionGradeData} />
+            <ConditionalSelectBox optionData={optionGradeData} setSelectedValue={setSelectedGrade} />
           </ConditionalOptionBox>
         </ConditionalOptionWrapper>
-        <ConditionalSubmit>조회</ConditionalSubmit>
+        <ConditionalSubmit onClick={handleFetchData}>조회</ConditionalSubmit>
       </ConditionalOptionContianer>
       <ConditionalPlanWrapper>
         <ConditionalPlanBox>
@@ -92,15 +115,16 @@ export default function ConditionalContent() {
               <ToggleSlider />
             </ToggleSwitchWrapper>
           </ConditionalPlanHeader>
-          {dummyPlans.map((plan, index) => (
-            <ConditionalPlanList
-              key={index}
-              plan={plan}
-              handlePlanAdd={handlePlanAdd}
-              selectedPlans={selectedPlans}
-              addMode={true}
-            />
-          ))}
+          {responseSubjects &&
+            responseSubjects.map((plan, index) => (
+              <ConditionalPlanList
+                key={index}
+                plan={plan}
+                handlePlanAdd={handlePlanAdd}
+                selectedPlans={selectedPlans}
+                addMode={true}
+              />
+            ))}
         </ConditionalPlanBox>
         <ConditionalPlanBox>
           <ConditionalPlanHeader></ConditionalPlanHeader>

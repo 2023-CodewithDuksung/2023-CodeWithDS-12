@@ -14,9 +14,9 @@ export default function ConditionalPlanList({ plan, selectedPlans, handlePlanAdd
   return (
     <PlanListContainer>
       <PlanHeader>
-        <PlanTitle>{plan.title}</PlanTitle>
+        <PlanTitle>{plan.subjectName}</PlanTitle>
         <PlanProfessor>{plan.professor}</PlanProfessor>
-        <PlanTime>{plan.time}</PlanTime>
+        <PlanTime>{plan.subjectTime}</PlanTime>
       </PlanHeader>
       <PlanButton onClick={handleActionClick} isPlanSelected={isPlanSelected} addMode={addMode}>
         {addMode ? '담기' : '빼기'}
