@@ -51,7 +51,7 @@ export default function ElectiveList({ type }) {
 
 const ListContainer = styled.table`
   width: 78rem;
-  margin: 3rem;
+  margin: 2rem;
 
   font-weight: 500;
   font-size: 1.2rem;
@@ -63,10 +63,19 @@ const ListContainer = styled.table`
 const ListHead = styled.th`
   padding: 1rem;
 
+  border-right: solid 0.1rem black;
+
+  border-bottom: solid 0.1rem black;
+
   background-color: #f7f9fa;
 
-  border-right: solid 0.1rem black;
-  border-bottom: solid 0.1rem black;
+  &:first-child {
+    border-left: 0;
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
 `;
 
 const ListBody = styled.td`
@@ -74,4 +83,12 @@ const ListBody = styled.td`
 
   border-right: solid 0.1rem black;
   border-bottom: solid 0.1rem black;
+
+  &:first-child {
+    border-left: 0;
+  }
+
+  &:last-child {
+    border-right: 0;
+  }
 `;
