@@ -3,7 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle`
   :root {
     --vh: 100%;
+
+  background: #f7f9fa;
    }
+
   html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -18,36 +21,46 @@ export const GlobalStyle = createGlobalStyle`
   main, menu, nav, output, ruby, section, summary,
   time, mark, audio, video {
     margin: 0;
-    border: 0;
     padding: 0;
+
+    border: 0;
+    font-size: 100%;
+
     vertical-align: baseline;
     font: inherit;
-    font-size: 100%;
     font-family: "Noto Sans KR";
   }
+
   article, aside, details, figcaption, figure,
   footer, header, hgroup, main, menu, nav, section {
     display: block;
   }
+
   *[hidden] {
       display: none;
   }
+
   body {
     display: block;
     touch-action: manipulation;
+
     line-height: 1;
   }
+
   menu, ol, ul {
     list-style: none;
   }
+
   blockquote, q {
     quotes: none;
   }
-  blockquote:before, blockquote:after,
-  q:before, q:after {
+
+  blockquote::before, blockquote::after,
+  q::before, q::after {
     content: '';
     content: none;
   }
+
   table {
     border-collapse: collapse;
     border-spacing: 0;
@@ -57,33 +70,44 @@ export const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
+
   html {
     -webkit-touch-callout: none;
-    -webkit-tap-highlight-color:rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color:rgb(0 0 0 / 0%);
     scroll-behavior: smooth;
     font-family: sans-serif;
+
     font-size: 62.5%;
     user-select: none;
   }
+
   ul, li {
-    padding-left: 0rem;
+    padding-left: 0;
     list-style: none;
   }
+
   a {
-    text-decoration: none;
     color: inherit;
+
+    text-decoration: none;
   }
+
   input, button {
     outline: none;
+
     border: none;
     background-color: transparent;
   }
+
   button {
     cursor: pointer;
+
     padding: 0;
   }
+
   input {
     appearance: none;
+
     &:focus {
       outline: none;
     }
@@ -92,6 +116,7 @@ export const GlobalStyle = createGlobalStyle`
   /* Thin 100 */
   @font-face {
 	font-family: "Noto Sans KR";
+
 	font-weight: 100;
 	src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100&display=swap");
   }
@@ -99,6 +124,7 @@ export const GlobalStyle = createGlobalStyle`
   /* regular 400 */
   @font-face {
 	font-family: "Noto Sans KR";
+
 	font-weight: 400;
 	src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400&display=swap");
   }
@@ -106,6 +132,7 @@ export const GlobalStyle = createGlobalStyle`
   /* Bold 700 */
   @font-face {
 	font-family: "Noto Sans KR";
+
 	font-weight: 700;
 	src: url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@700&display=swap");
   }
