@@ -1,10 +1,10 @@
 import React, { Children } from 'react';
 import { styled } from 'styled-components';
 
-export default function BoxLayout({ content, width, height, color, size, weight }) {
+export default function BoxLayout({ content, subcontent, width, height, color, size, weight }) {
   return (
     <Table width={width} height={height} color={color} size={size} weight={weight}>
-      {content}
+      {content} <SubContent> {subcontent}</SubContent>
     </Table>
   );
 }
@@ -13,6 +13,7 @@ const Table = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
 
   width: ${({ width }) => width};
   height: ${({ height }) => height};
@@ -23,4 +24,10 @@ const Table = styled.div`
   color: ${({ color }) => color};
   font-weight: ${({ weight }) => weight};
   font-size: 1.6rem;
+`;
+
+const SubContent = styled.span`
+  margin-left: 1rem;
+
+  color: #66e2e2;
 `;

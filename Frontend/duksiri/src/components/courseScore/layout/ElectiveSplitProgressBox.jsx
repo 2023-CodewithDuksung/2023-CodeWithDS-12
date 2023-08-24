@@ -33,7 +33,7 @@ export default function ElectiveSplitProgressBox({
         <span>학문의 융합 (21)</span>
         <span>자기설계•개발 (6)</span>
       </SubjectName>
-      <ToggleText> 상세 내역 보기 </ToggleText>
+      <ToggleText> ▿ 상세 내역 보기 </ToggleText>
     </BoxWrapper>
   );
 }
@@ -90,7 +90,7 @@ const ToggleText = styled.h6`
   display: flex;
   justify-content: flex-end;
 
-  margin-top: 3.5rem;
+  margin-top: 2.5rem;
 
   color: #000;
   font-weight: 400;

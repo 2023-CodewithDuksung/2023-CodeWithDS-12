@@ -23,7 +23,7 @@ export default function Graduate({ userData }) {
           progressscore={progressscore}
           lefta={electivescore}
           leftb={basemajor}
-          leftc={firstmajor}
+          leftc={secondmajor}
         />
       </TableBoxContainer>
     </ScoreBoxWrapper>

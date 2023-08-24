@@ -23,8 +23,8 @@ export default function SplitProgressBox({ nowscore, title, majorname, maxscore,
       </ProgressBarWrapper>
       <SubjectName>
         <span>교양 (42)</span>
-        <span>전탐 (42)</span>
-        <span>1전공 (42)</span>
+        <span>전탐 (15)</span>
+        <span>1전공 (24)</span>
         <span>2전공 (21)</span>
       </SubjectName>
     </BoxWrapper>

@@ -2,13 +2,13 @@ import { styled } from 'styled-components';
 import { USER_DATA } from '../../../core/mockCourseScore';
 import { useEffect } from 'react';
 
-export default function ProgressBox({ nowscore, title, majorname, maxscore, progressscore }) {
+export default function ProgressBox({ nowscore, title, majorname, maxscore, progressscore, majorcolor }) {
   return (
     <BoxWrapper>
       <TitleWrapper>
         <TitleContainer>
           <Title>{title}</Title>
-          <MajorName>{majorname}</MajorName>
+          <MajorName majorcolor={majorcolor}>{majorname}</MajorName>
         </TitleContainer>
         <CourseNum>
           {nowscore} / {maxscore}
@@ -56,7 +56,7 @@ const Title = styled.h1`
 `;
 
 const MajorName = styled.h1`
-  color: #7a68ae;
+  color: ${(props) => props.majorcolor};
   font-weight: 700;
   font-size: 2rem;
 `;

@@ -4,18 +4,18 @@ import BoxLayout from './layout/BoxLayout';
 import ProgressBox from './layout/ProgressBox';
 import { calcProgress } from '../../core/Progress';
 
-export default function FirstMajor({ userData }) {
-  const progressscore = calcProgress(userData.firstMajorCredit, 36);
-  const leftScore = 36 - userData.firstMajorCredit;
+export default function SecondMajor({ userData }) {
+  const progressscore = calcProgress(userData.secondMajorCredit, 36);
+  const leftScore = 36 - userData.secondMajorCredit;
   return (
     <ScoreBoxWrapper>
       <ProgressBox
-        title="1전공"
-        majorname={userData.userFirstMajor}
-        nowscore={userData.firstMajorCredit}
+        title="2전공"
+        majorname={userData.userSecondMajor}
+        nowscore={userData.secondMajorCredit}
         maxscore="36"
         progressscore={progressscore}
-        majorcolor="#7A68AE"
+        majorcolor="#F16D9A"
       />
 
       <TableBoxContainer>
@@ -44,7 +44,7 @@ export default function FirstMajor({ userData }) {
             color="#000000"
             size="1.6rem"
             weight="500"
-            content="졸업프로젝트1, 졸업프로젝트2"
+            content="졸업 전시 관련 과목 2개"
           />
           <BoxLayout
             width="11.5rem"
@@ -53,7 +53,7 @@ export default function FirstMajor({ userData }) {
             size="1.6rem"
             weight="500"
             content="선택"
-            subcontent="6"
+            subcontent="9"
           />
           <BoxLayout width="30rem" height="7.5rem" color="#FF4646" size="1.6rem" weight="500" content="" />
         </SubTableContainer>
