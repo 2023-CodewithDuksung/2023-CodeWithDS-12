@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import ProgressBar from './ProgressBar';
 
-export default function ProgressBox({ step }) {
+export default function ProgressBox() {
   return (
     <BoxWrapper>
       <TitleWrapper>
@@ -11,7 +11,7 @@ export default function ProgressBox({ step }) {
         </TitleContainer>
         <CourseNum>18/36</CourseNum>
       </TitleWrapper>
-      <ProgressBar step={6} />
+      <ProgressBar nowscore="42" maxscore="36" />
       <ToggleText> 상세 내역 보기 </ToggleText>
     </BoxWrapper>
   );

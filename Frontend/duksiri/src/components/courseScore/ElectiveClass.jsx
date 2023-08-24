@@ -19,15 +19,15 @@ export default function ElectiveClass() {
           content="최소 이수학점 (36) 이수 완료"
         />
 
-        <BoxLayout width="20rem" height="7.5rem" color="black" size="2rem" weight="700" content="이수 학점" />
-        <BoxLayout width="11.5rem" height="7.5rem" color="#22BCBC" size="1.6rem" weight="500" content="Y" />
+        <BoxLayout width="20rem" height="7.5rem" color="black" size="2rem" weight="700" content="이수 요건" />
+        <BoxLayout width="11.5rem" height="7.5rem" color="#FF4646" size="1.6rem" weight="500" content="N" />
         <BoxLayout
           width="30rem"
           height="7.5rem"
-          color="#000000"
+          color="#FF4646"
           size="1.6rem"
           weight="500"
-          content="최소 이수학점 (36) 이수 완료"
+          content="학문의 융합 A1 영역 미수강"
         />
       </TableBoxContainer>
     </ScoreBoxWrapper>
