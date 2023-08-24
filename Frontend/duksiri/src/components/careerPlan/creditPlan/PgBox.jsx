@@ -59,23 +59,23 @@ export default function PgBox({ selectedCareer }) {
           )}
           {selectedCareer === "exchange" &&(
             <ProgressTextContainer>
-              <FMajorProgressText>1전공 (6학점)</FMajorProgressText>
-              <SMajorProgressText>2전공 (9학점)</SMajorProgressText>
-              <CultureProgressText>교양 (3학점)</CultureProgressText>
+              <OFMajorProgressText>1전공 (6학점)</OFMajorProgressText>
+              <OSMajorProgressText>2전공 (9학점)</OSMajorProgressText>
+              <OCultureProgressText>교양 (3학점)</OCultureProgressText>
             </ProgressTextContainer>
           )}
           {selectedCareer === "practicum" && (
             <ProgressTextContainer>
-              <FMajorProgressText>1전공 (6학점)</FMajorProgressText>
-              <SMajorProgressText>2전공 (9학점)</SMajorProgressText>
-              <CultureProgressText>교양 (3학점)</CultureProgressText>
+              <OFMajorProgressText>1전공 (6학점)</OFMajorProgressText>
+              <OSMajorProgressText>2전공 (9학점)</OSMajorProgressText>
+              <OCultureProgressText>교양 (3학점)</OCultureProgressText>
             </ProgressTextContainer>
           )}
           {selectedCareer === "internship" && (
             <ProgressTextContainer>
-              <FMajorProgressText>1전공 (6학점)</FMajorProgressText>
-              <SMajorProgressText>2전공 (9학점)</SMajorProgressText>
-              <CultureProgressText>교양 (3학점)</CultureProgressText>
+              <OFMajorProgressText>1전공 (6학점)</OFMajorProgressText>
+              <OSMajorProgressText>2전공 (9학점)</OSMajorProgressText>
+              <OCultureProgressText>교양 (3학점)</OCultureProgressText>
             </ProgressTextContainer>
           )}
         </ProgressContainer>
@@ -89,19 +89,14 @@ export default function PgBox({ selectedCareer }) {
                       </TextBox>
                       <ImageContainer>
                         <TooltipImage src="./image/Group 185.png" alt="Tooltip Image" />
-                        <Tooltip>
-                          <TooltipMainText>
-                            남은 학점 (31)/ 남은 학기 (3)
-                          </TooltipMainText>
-                          <TooltipExtraText>
-                            소수점 자리 올림
-                          </TooltipExtraText>
+                        <Tooltip >
+                          <img src="./image/extra.png" alt="Tooltip Image" />
                         </Tooltip>
                       </ImageContainer>
                     </Box>
                     <Box>
                       <TextBox>
-                        학문의 융합 A1 이수 필요.
+                        학문의 융합 A1 이수 필요
                       </TextBox>
                       <img src="./image/Group 195.png" />
                     </Box>
@@ -113,13 +108,8 @@ export default function PgBox({ selectedCareer }) {
                       </TextBox>
                       <ImageContainer>
                         <TooltipImage src="./image/Group 185.png" alt="Tooltip Image" />
-                        <Tooltip>
-                          <TooltipMainText>
-                            남은 학점 (31)/ 남은 학기 (3)
-                          </TooltipMainText>
-                          <TooltipExtraText>
-                            소수점 자리 올림
-                          </TooltipExtraText>
+                        <Tooltip >
+                          <img src="./image/extra.png" alt="Tooltip Image" />
                         </Tooltip>
                       </ImageContainer>
                     </Box>
@@ -159,10 +149,8 @@ export default function PgBox({ selectedCareer }) {
                       </TextBox>
                       <ImageContainer>
                         <TooltipImage src="./image/Group 185.png" alt="Tooltip Image" />
-                        <Tooltip>
-                          <TooltipMainText>
-                            파견학교마다 어학기준이 상이합니다. 국제교류처 공지사항에서 확인해주세요.
-                          </TooltipMainText>
+                        <Tooltip >
+                          <img src="./image/exchange.png" alt="Tooltip Image" />
                         </Tooltip>
                       </ImageContainer>
                     </Box>
@@ -172,13 +160,8 @@ export default function PgBox({ selectedCareer }) {
                       </TextBox>
                       <ImageContainer>
                         <TooltipImage src="./image/Group 185.png" alt="Tooltip Image" />
-                        <Tooltip>
-                          <TooltipMainText>
-                            남은 학점 (31)/ 남은 학기 (2)
-                          </TooltipMainText>
-                          <TooltipExtraText>
-                            커리어 진행 학기는 남은 학기에서 제외되고 계산됩니다.
-                          </TooltipExtraText>
+                        <Tooltip >
+                          <img src="./image/career.png" alt="Tooltip Image" />
                         </Tooltip>
                       </ImageContainer>
                     </Box>
@@ -190,10 +173,8 @@ export default function PgBox({ selectedCareer }) {
                       </TextBox>
                       <ImageContainer>
                         <TooltipImage src="./image/Group 185.png" alt="Tooltip Image" />
-                        <Tooltip>
-                          <TooltipMainText>
-                            전공 개설 여부는 본인이 직접 파견대학 홈페이지를 방문하여 확인해주세요. 
-                          </TooltipMainText>
+                        <Tooltip >
+                          <img src="./image/major.png" alt="Tooltip Image" />
                         </Tooltip>
                       </ImageContainer>
                     </Box>
@@ -227,15 +208,8 @@ export default function PgBox({ selectedCareer }) {
                       </TextBox>
                       <ImageContainer>
                         <TooltipImage src="./image/Group 185.png" alt="Tooltip Image" />
-                        <Tooltip>
-                          <TooltipMainText>
-                            <TooltipMainText>
-                              남은 학점 (31)/ 남은 학기 (2)
-                            </TooltipMainText>
-                            <TooltipExtraText>
-                              커리어 진행 학기는 남은 학기에서 제외되고 계산됩니다.
-                            </TooltipExtraText>
-                          </TooltipMainText>
+                        <Tooltip >
+                          <img src="./image/career.png" alt="Tooltip Image" />
                         </Tooltip>
                       </ImageContainer>
                     </Box>
@@ -247,10 +221,8 @@ export default function PgBox({ selectedCareer }) {
                       </TextBox>
                       <ImageContainer>
                         <TooltipImage src="./image/Group 185.png" alt="Tooltip Image" />
-                        <Tooltip>
-                          <TooltipMainText>
-                            자세한 내용은 인턴십/현장실습 사이트 공지사항 및 대학일자리 본부에서 확인해주세요.
-                          </TooltipMainText>
+                        <Tooltip >
+                          <img src="./image/internship.png" alt="Tooltip Image" />
                         </Tooltip>
                       </ImageContainer>
                     </Box>
@@ -290,15 +262,8 @@ export default function PgBox({ selectedCareer }) {
                       </TextBox>
                       <ImageContainer>
                         <TooltipImage src="./image/Group 185.png" alt="Tooltip Image" />
-                        <Tooltip>
-                          <TooltipMainText>
-                            <TooltipMainText>
-                              남은 학점 (31)/ 남은 학기 (2)
-                            </TooltipMainText>
-                            <TooltipExtraText>
-                              커리어 진행 학기는 남은 학기에서 제외되고 계산됩니다.
-                            </TooltipExtraText>
-                          </TooltipMainText>
+                        <Tooltip >
+                          <img src="./image/career.png" alt="Tooltip Image" />
                         </Tooltip>
                       </ImageContainer>
                     </Box>
@@ -310,10 +275,8 @@ export default function PgBox({ selectedCareer }) {
                       </TextBox>
                       <ImageContainer>
                         <TooltipImage src="./image/Group 185.png" alt="Tooltip Image" />
-                        <Tooltip>
-                          <TooltipMainText>
-                            자세한 내용은 인턴십/현장실습 사이트 공지사항 및 대학일자리 본부에서 확인해주세요.
-                          </TooltipMainText>
+                        <Tooltip >
+                          <img src="./image/internship.png" alt="Tooltip Image" />
                         </Tooltip>
                       </ImageContainer>
                     </Box>
@@ -454,6 +417,33 @@ const NSMajorProgressText = styled.p`
   margin-right: 4.5rem;
 `;
 
+const OFMajorProgressText = styled.p`
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #bbbbbb;
+  margin-top: 0.5rem;
+  margin-left: 3rem;
+  margin-right: 4.5rem;
+`;
+
+const OSMajorProgressText = styled.p`
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #bbbbbb;
+  margin-top: 0.5rem;
+  margin-left: 5.5rem;
+  margin-right: 4.5rem;
+`;
+
+const OCultureProgressText = styled.p`
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #bbbbbb;
+  margin-top: 0.5rem;
+  margin-left: 1.5rem;
+  margin-right: 5rem;
+`;
+
 const InfoBox = styled.div`
   display: flex;
   width: 100%;
@@ -499,29 +489,12 @@ const ImageContainer = styled.div`
 
 const Tooltip = styled.div`
   position: absolute;
-  bottom: 100%;
-  left: 110px;
-  width: 22rem;
+  top: -83px;
+  left: 105px;
   transform: translateX(-50%);
-  background-color: #FFFFFF;
-  color: black;
-  padding: 1rem 2rem 2rem 2rem;
-  font-size: 14px;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s, visibility 0.3s;
-  border: 2px solid #BBBBBB;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 10px;
-    border: 2px solid #BBBBBB; 
-    border-width: 10px;
-    margin-left: -10px;
-    border-top-color: #FFFFFF;
-  }
 `;
 
 const TooltipImage = styled.img`
@@ -531,15 +504,6 @@ const TooltipImage = styled.img`
   }
 `;
 
-const TooltipMainText = styled.p`
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-`;
 
-const TooltipExtraText = styled.p`
-  font-size: 1.2rem;
-  color: #808080;
-`;
 
 
