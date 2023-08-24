@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; 
-import PgBox from '../components/creditPlan/PgBox';
-import CareerSelect from '../components/creditPlan/Select';
-import SecondSelect from '../components/creditPlan/SecondSelect';
+import PgBox from '../components/careerPlan/creditPlan/PgBox';
+import CareerSelect from '../components/careerPlan/creditPlan/Select';
+import SecondSelect from '../components/careerPlan/creditPlan/SecondSelect';
 import { styled } from 'styled-components';
 
 export default function CareerPlan() {
