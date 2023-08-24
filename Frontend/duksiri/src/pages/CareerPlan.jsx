@@ -3,6 +3,7 @@ import PgBox from '../components/careerPlan/creditPlan/PgBox';
 import CareerSelect from '../components/careerPlan/creditPlan/Select';
 import SecondSelect from '../components/careerPlan/creditPlan/SecondSelect';
 import { styled } from 'styled-components';
+import SideInformation from '../api/SideInformation';
 
 export default function CareerPlan() {
     const [selectedCareer, setSelectedCareer] = useState("none");
@@ -18,28 +19,38 @@ export default function CareerPlan() {
 
     return (
         <HomeContainer>
-            <TitleContainer>
-                <Title>커리어 플래너</Title>
-                <PlanDescription>다음 학기에 희망하는 커리어를 선택해주시면, 맞춤형 플랜이 제공됩니다. </PlanDescription>
-            </TitleContainer>
-            <SelectContainer>
-                <CareerSelect selectedValue={selectedCareer} onSelectionChange={handleCareerChange} />
-            </SelectContainer>
-            <BoxContainer>
-                <PgBox selectedCareer={selectedCareer} />
-            </BoxContainer>
-            <SelectContainer>
-                <SecondSelect selectedValue={selectedSecondCareer} onSelectionChange={handleSecondCareerChange} />
-            </SelectContainer>
-            <BoxContainer>
-                <PgBox selectedCareer={selectedSecondCareer} />
-            </BoxContainer>
+          <CareerWrapper>
+              <TitleContainer>
+                  <Title>커리어 플래너</Title>
+                  <PlanDescription>다음 학기에 희망하는 커리어를 선택해주시면, 맞춤형 플랜이 제공됩니다.</PlanDescription>
+              </TitleContainer>
+              <SelectContainer>
+                  <CareerSelect selectedValue={selectedCareer} onSelectionChange={handleCareerChange} />
+              </SelectContainer>
+              <BoxContainer>
+                  <PgBox selectedCareer={selectedCareer} />
+              </BoxContainer>
+              <SelectContainer>
+                  <SecondSelect selectedValue={selectedSecondCareer} onSelectionChange={handleSecondCareerChange} />
+              </SelectContainer>
+              <BoxContainer>
+                  <PgBox selectedCareer={selectedSecondCareer} />
+              </BoxContainer>
+          </CareerWrapper>        
+          <SideInformation />
         </HomeContainer>
     );
 }
 
 const HomeContainer = styled.main`
-    padding: 5rem;
+    display: flex;
+    justify-content: space-between;
+`;
+
+const CareerWrapper = styled.div`
+  padding: 5rem;
+  background: #f7f9fa;
+  min-height: 100vh;
 `;
 
 const TitleContainer = styled.div`
