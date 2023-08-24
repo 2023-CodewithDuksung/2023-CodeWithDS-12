@@ -19,16 +19,14 @@ const ConditionalContainer = styled.div`
   justify-content: space-between;
 `;
 const ConditionalWrapper = styled.div`
-  min-height: 100vh;
-  background: #f7f9fa;
   padding: 5rem;
+
+  background: #f7f9fa;
+  min-height: 100vh;
 `;
 
 const ConditionalTitle = styled.header`
   color: #22bcbc;
-  font-family: Noto Sans KR;
-  font-size: 2.8rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  font-size: 2.8rem;
 `;
