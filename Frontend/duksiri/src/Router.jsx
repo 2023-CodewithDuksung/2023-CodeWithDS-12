@@ -5,8 +5,8 @@ import CourseScore from './pages/CourseScore';
 import ConditionalPlan from './pages/ConditionalPlan';
 import SideNavigation from './components/common/SideNavigation';
 import { styled } from 'styled-components';
-import Ready from './pages/ready';
 import Header from './components/common/Header';
+import Ready from './pages/Ready';
 
 export default function Router() {
   return (
