@@ -1,13 +1,17 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import ElectiveClass from '../components/courseScore/ElectiveClass';
+import FirstMajor from '../components/courseScore/FirstMajor';
+import { USER_DATA } from '../core/mockCourseScore';
 
 export default function CourseScore() {
+  const userData = USER_DATA.persondata;
   return (
     <CourseWrapper>
       <Title>이수 내역</Title>
       <BoxContainer>
-        <ElectiveClass />
+        <ElectiveClass userData={userData} />
+        <FirstMajor userData={userData} />
       </BoxContainer>
     </CourseWrapper>
   );
@@ -25,17 +29,6 @@ const Title = styled.h1`
 `;
 
 const BoxContainer = styled.article`
-  display: grid;
-
-  grid-template-columns: 2fr 1fr;
-`;
-
-// 테스트용으로 삭제될 애
-const TestMiniBox = styled.div`
-  height: 15rem;
-  margin-bottom: 3rem;
-  margin-left: 3rem;
-
-  background-color: beige;
-  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
 `;

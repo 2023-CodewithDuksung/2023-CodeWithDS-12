@@ -1,17 +1,26 @@
 import { styled } from 'styled-components';
-import ProgressBar from './ProgressBar';
+import { USER_DATA } from '../../../core/mockCourseScore';
+import { useEffect } from 'react';
 
-export default function ProgressBox() {
+export default function ProgressBox({ nowscore, title, majorname, maxscore, progressscore }) {
+  // useEffect(() => {
+  //   // const
+  //   console.log(progressscore);
+  // }, []);
   return (
     <BoxWrapper>
       <TitleWrapper>
         <TitleContainer>
-          <MajorNum>1전공</MajorNum>
-          <MajorName>IT 미디어 공학</MajorName>
+          <Title>{title}</Title>
+          <MajorName>{majorname}</MajorName>
         </TitleContainer>
-        <CourseNum>18/36</CourseNum>
+        <CourseNum>
+          {nowscore} / {maxscore}
+        </CourseNum>
       </TitleWrapper>
-      <ProgressBar nowscore="42" maxscore="36" />
+      <ProgressBarWrapper>
+        <ProgressBarBox progressscore={progressscore} />
+      </ProgressBarWrapper>
       <ToggleText> 상세 내역 보기 </ToggleText>
     </BoxWrapper>
   );
@@ -21,6 +30,7 @@ const BoxWrapper = styled.article`
   display: flex;
   flex-direction: column;
 
+  width: 86rem;
   height: 15rem;
   padding: 3.2rem 2.3rem 0 3.4rem;
   margin-bottom: 3rem;
@@ -41,7 +51,7 @@ const TitleContainer = styled.div`
   margin-bottom: 1.2rem;
 `;
 
-const MajorNum = styled.h1`
+const Title = styled.h1`
   margin-right: 2.7rem;
   margin-left: 0.6rem;
 
@@ -73,4 +83,21 @@ const ToggleText = styled.h6`
   font-weight: 400;
   font-size: 1.2rem;
   align-content: end;
+`;
+
+const ProgressBarWrapper = styled.section`
+  width: 100%;
+  height: 2rem;
+
+  background-color: #eee;
+`;
+
+const ProgressBarBox = styled.article`
+  /* width: ${({ step }) => step * (33.6 / 5)}rem; */
+  width: ${({ progressscore }) => {
+    progressscore;
+  }}%;
+  height: 2rem;
+
+  background: linear-gradient(270deg, #d9e270 0%, #66e2e2 100%);
 `;
