@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
+import Graduate from '../components/courseScore/graduate';
 import { styled } from 'styled-components';
 import ElectiveClass from '../components/courseScore/ElectiveClass';
 import FirstMajor from '../components/courseScore/FirstMajor';
 import { USER_DATA } from '../core/mockCourseScore';
 import SecondMajor from '../components/courseScore/SecondMajor';
-import Graduate from '../components/courseScore/graduate';
 // import { UnderTriangle } from '../assets';
 
 export default function CourseScore() {
