@@ -310,7 +310,7 @@ const ConditionalPlanHeaderWrapper = styled.div`
 const ConditionalPlandetail = styled.p`
   color: #000;
   font-family: Noto Sans KR;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
