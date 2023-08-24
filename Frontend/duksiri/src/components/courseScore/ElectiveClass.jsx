@@ -6,9 +6,6 @@ import ElectiveSplitProgressBox from './layout/ElectiveSplitProgressBox';
 
 export default function ElectiveClass({ userData }) {
   const progressscore = calcProgress(userData.gecredit, 36);
-  // const basic = calcProgress(userData.requiredCourseCredit, 36);
-  // const self = calcProgress(userData.a3Credit, 36) + basic;
-  // console.log(basic);
   return (
     <ScoreBoxWrapper>
       <ElectiveSplitProgressBox

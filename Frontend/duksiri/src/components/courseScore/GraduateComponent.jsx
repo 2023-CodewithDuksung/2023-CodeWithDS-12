@@ -27,8 +27,6 @@ export default function GraduateComponent({ userData }) {
 }
 const ScoreBoxWrapper = styled.div`
   display: flex;
-
-  margin-bottom: 7rem;
 `;
 
 const TableBoxContainer = styled.div`

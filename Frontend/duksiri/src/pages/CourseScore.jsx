@@ -16,7 +16,9 @@ export default function CourseScore() {
       <Title>이수 내역</Title>
       <BoxContainer>
         <GraduateComponent userData={userData} />
-        <UnderTriangleIcon />
+        <IconWrapper>
+          <UnderTriangleIcon />
+        </IconWrapper>
         <ElectiveClass userData={userData} />
         <FirstMajor userData={userData} />
         <SecondMajor userData={userData} />
@@ -39,6 +41,14 @@ const Title = styled.h1`
 const BoxContainer = styled.article`
   display: flex;
   flex-direction: column;
+`;
+const IconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+
+  /* align-items: center; */
+
+  margin-bottom: 2.7rem;
 `;
 const UnderTriangleIcon = styled(UnderTriangle)`
   width: 3rem;
