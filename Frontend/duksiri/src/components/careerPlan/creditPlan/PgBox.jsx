@@ -101,7 +101,7 @@ export default function PgBox({ selectedCareer }) {
                     </Box>
                     <Box>
                       <TextBox>
-                        학문의 융합 A1 이수 필요
+                        학문의 융합 A1 이수 필요.
                       </TextBox>
                       <img src="./image/Group 195.png" />
                     </Box>
