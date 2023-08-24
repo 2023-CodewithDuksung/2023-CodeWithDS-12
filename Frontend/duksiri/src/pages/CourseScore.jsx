@@ -5,7 +5,7 @@ import FirstMajor from '../components/courseScore/FirstMajor';
 import { USER_DATA } from '../core/mockCourseScore';
 import Graduate from '../components/courseScore/graduate';
 import SecondMajor from '../components/courseScore/SecondMajor';
-import { UnderTriangle } from '../assets';
+// import { UnderTriangle } from '../assets';
 
 export default function CourseScore() {
   const userData = USER_DATA.persondata;
@@ -16,7 +16,7 @@ export default function CourseScore() {
       <Title>이수 내역</Title>
       <BoxContainer>
         <Graduate userData={userData} />
-        <UnderTriangleIcon />
+        {/* <UnderTriangleIcon /> */}
         <ElectiveClass userData={userData} />
         <FirstMajor userData={userData} />
         <SecondMajor userData={userData} />
@@ -40,7 +40,7 @@ const BoxContainer = styled.article`
   display: flex;
   flex-direction: column;
 `;
-const UnderTriangleIcon = styled(UnderTriangle)`
-  width: 3rem;
-  height: 1%.5;
-`;
+// const UnderTriangleIcon = styled(UnderTriangle)`
+//   width: 3rem;
+//   height: 1%.5;
+// `;
