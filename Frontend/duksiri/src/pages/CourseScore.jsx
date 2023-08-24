@@ -1,16 +1,13 @@
 import React from 'react';
-import ProgressBox from '../components/courseScore/ProgressBox';
 import { styled } from 'styled-components';
+import ElectiveClass from '../components/courseScore/ElectiveClass';
 
 export default function CourseScore() {
   return (
     <CourseWrapper>
       <Title>이수 내역</Title>
       <BoxContainer>
-        <ProgressBox />
-        {/* <TestMiniBox /> */}
-        <ProgressBox />
-        {/* <TestMiniBox /> */}
+        <ElectiveClass />
       </BoxContainer>
     </CourseWrapper>
   );

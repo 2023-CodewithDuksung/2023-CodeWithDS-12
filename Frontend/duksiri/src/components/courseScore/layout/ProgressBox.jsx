@@ -21,9 +21,11 @@ const BoxWrapper = styled.article`
   display: flex;
   flex-direction: column;
 
+  height: 15rem;
   padding: 3.2rem 2.3rem 0 3.4rem;
   margin-bottom: 3rem;
 
+  border: 1px solid #bbb;
   background-color: #fff;
   align-content: center;
 `;
