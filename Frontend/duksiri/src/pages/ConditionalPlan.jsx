@@ -20,7 +20,7 @@ const ConditionalContainer = styled.div`
 `;
 const ConditionalWrapper = styled.div`
   padding: 5rem;
-
+  width: 100%;
   background: #f7f9fa;
   min-height: 100vh;
 `;

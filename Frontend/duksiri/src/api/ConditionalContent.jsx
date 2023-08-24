@@ -31,28 +31,29 @@ export default function ConditionalContent() {
     setSelectedPlans((prevPlans) => prevPlans.filter((plan) => plan !== planToRemove));
   }
   const timeList = [
-    '화C/차137, 목E/차137',
-    '화B/차137, 월A/차137',
-    '화C/차137, 목E/차137',
-    '수D/차137, 금F/차137',
-    '화C/차337, 목H/차137',
-    '화I/차137, 금J/차137',
-    '월K/차137, 목L/차137',
-    '화M/차137, 수N/차137',
-    '월O/차137, 금P/차137',
-    '수Q/차137, 목R/차137',
-    '월S/차137, 금T/차137',
-    '화C/차137, 목E/차137',
-    '화B/차137, 월A/차137',
-    '수D/차137, 금F/차137',
-    '수G/차137, 목H/차137',
-    '화I/차137, 금J/차137',
-    '월K/차137, 목L/차137',
-    '화M/차137, 수N/차137',
-    '월O/차137, 금P/차137',
-    '수Q/차137, 목R/차137',
-    '월S/차137, 금T/차137',
+    '화C/차137,목E/차137',
+    '화B/차137,월A/차137',
+    '화C/차137,목E/차137',
+    '수D/차137,금F/차137',
+    '화C/차337,목A/차137',
+    '화E/차137,금C/차137',
+    '월A/차137,목C/차137',
+    '화C/차137,수A/차137',
+    '월O/차137,금P/차137',
+    '수Q/차137,목R/차137',
+    '월S/차137,금T/차137',
+    '화C/차137,목E/차137',
+    '화B/차137,월A/차137',
+    '수D/차137,금F/차137',
+    '수G/차137,목H/차137',
+    '화I/차137,금J/차137',
+    '월K/차137,목L/차137',
+    '화M/차137,수N/차137',
+    '월O/차137,금P/차137',
+    '수Q/차137,목R/차137',
+    '월S/차137,금T/차137',
   ];
+  const preList = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''];
 
   const optionCompleteData = [
     { key: 1, text: '전공', value: '전공' },
@@ -108,6 +109,7 @@ export default function ConditionalContent() {
           dummyDataWithTime = responseSubjects.map((data, index) => ({
             ...data,
             subject_time: timeList[index],
+            pre: preList[index],
           }));
         })
         .catch((error) => {
@@ -159,6 +161,7 @@ export default function ConditionalContent() {
                   selectedPlans={selectedPlans}
                   selectedScore={selectedScore}
                   subjectTime={timeList[index]}
+                  pre={preList[index]}
                   addMode={true}
                 />
               ))}

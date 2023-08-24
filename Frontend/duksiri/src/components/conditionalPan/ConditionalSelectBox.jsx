@@ -1,15 +1,34 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { styled } from 'styled-components';
 
 export default function ConditionalSelectBox({ optionData, setSelectedValue }) {
   const [currentValue, setCurrentValue] = useState('선택');
   const [showOptions, setShowOptions] = useState(false);
   const [isIconRotated, setIsIconRotated] = useState(false);
+  const selectRef = useRef(null);
   useEffect(() => {
     if (optionData.find((data) => data.text === '전체')) {
       setCurrentValue('전체');
     }
   }, []);
+  useEffect(() => {
+    // Function to handle outside clicks
+    function handleClickOutside(event) {
+      if (selectRef.current && !selectRef.current.contains(event.target)) {
+        setShowOptions(false);
+      }
+    }
+
+    // Add a click event listener to window when options are shown
+    if (showOptions) {
+      window.addEventListener('click', handleClickOutside);
+    }
+
+    // Clean up the event listener on unmount
+    return () => {
+      window.removeEventListener('click', handleClickOutside);
+    };
+  }, [showOptions]);
   function handleOnChangeSelectValue(e) {
     setCurrentValue(e.target.getAttribute('text'));
     setSelectedValue(e.target.getAttribute('value'));
@@ -20,7 +39,7 @@ export default function ConditionalSelectBox({ optionData, setSelectedValue }) {
   }
 
   return (
-    <ConditionalSelectContianer onClick={handleOptions} isRotated={isIconRotated}>
+    <ConditionalSelectContianer onClick={handleOptions} isRotated={isIconRotated} ref={selectRef}>
       {' '}
       <Label>{currentValue}</Label>
       <SelectOptions show={showOptions}>
