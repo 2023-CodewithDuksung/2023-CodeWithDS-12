@@ -5,6 +5,7 @@ import FirstMajor from '../components/courseScore/FirstMajor';
 import { USER_DATA } from '../core/mockCourseScore';
 import SecondMajor from '../components/courseScore/SecondMajor';
 import { UnderTriangle } from '../assets';
+import GraduateComponent from '../components/courseScore/GraduateComponent';
 
 export default function CourseScore() {
   const userData = USER_DATA.persondata;
@@ -14,6 +15,7 @@ export default function CourseScore() {
     <CourseWrapper>
       <Title>이수 내역</Title>
       <BoxContainer>
+        <GraduateComponent userData={userData} />
         <UnderTriangleIcon />
         <ElectiveClass userData={userData} />
         <FirstMajor userData={userData} />
