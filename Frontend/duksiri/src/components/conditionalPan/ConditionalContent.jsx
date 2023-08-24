@@ -131,10 +131,10 @@ export default function ConditionalContent() {
         </ConditionalOptionWrapper>
         <ConditionalSubmit onClick={handleFetchData}>조회</ConditionalSubmit>
       </ConditionalOptionContianer>
-
-      <ConditionalPlanWrapper>
-        <ConditionalPlanBox>
-          {/* <ConditionalPlanHeaderContainer>
+      {responseSubjects && (
+        <ConditionalPlanWrapper>
+          <ConditionalPlanBox>
+            {/* <ConditionalPlanHeaderContainer>
             <ToggleName>발표 제외</ToggleName>
             <ToggleSwitchWrapper>
               <ToggleInput checked={isPTChecked} onChange={handlePTToggle} />
@@ -151,46 +151,47 @@ export default function ConditionalContent() {
               <ToggleSlider />
             </ToggleSwitchWrapper>
           </ConditionalPlanHeaderContainer> */}
-          {responseSubjects &&
-            responseSubjects.map((plan, index) => (
+            {responseSubjects &&
+              responseSubjects.map((plan, index) => (
+                <ConditionalPlanList
+                  key={index}
+                  plan={plan}
+                  handlePlanAdd={handlePlanAdd}
+                  selectedPlans={selectedPlans}
+                  addMode={true}
+                />
+              ))}
+          </ConditionalPlanBox>
+          <img src={arrow_right} />
+          <ConditionalPlanBox>
+            <ConditionalPlanHeaderContainer>
+              <ConditionalPlanHeaderWrapper>
+                <ConditionalPlandetail>담은 학점</ConditionalPlandetail>
+                <ToggleName2>{selectedScore}</ToggleName2>
+              </ConditionalPlanHeaderWrapper>
+              <ConditionalPlanHeaderWrapper>
+                <ConditionalPlandetail>난이도</ConditionalPlandetail>
+                <ToggleName2>
+                  {selectedDifficulty > 10 ? (selectedDifficulty > 15 ? '힘듦' : '적정') : '쉬움'}
+                </ToggleName2>
+                <DifficultyDetail>
+                  <li>어쩌구</li>
+                  <li>점수의 총 합에 따라 해당 시간표의 쉬움 / 적정 / 힘듦의 난이도가 제공됩니다.</li>
+                </DifficultyDetail>
+              </ConditionalPlanHeaderWrapper>
+            </ConditionalPlanHeaderContainer>
+            {selectedPlans.map((plan, index) => (
               <ConditionalPlanList
                 key={index}
                 plan={plan}
-                handlePlanAdd={handlePlanAdd}
+                handlePlanRemove={handlePlanRemove}
                 selectedPlans={selectedPlans}
-                addMode={true}
+                addMode={false}
               />
             ))}
-        </ConditionalPlanBox>
-        <img src={arrow_right} />
-        <ConditionalPlanBox>
-          <ConditionalPlanHeaderContainer>
-            <ConditionalPlanHeaderWrapper>
-              <ConditionalPlandetail>담은 학점</ConditionalPlandetail>
-              <ToggleName2>{selectedScore}</ToggleName2>
-            </ConditionalPlanHeaderWrapper>
-            <ConditionalPlanHeaderWrapper>
-              <ConditionalPlandetail>난이도</ConditionalPlandetail>
-              <ToggleName2>
-                {selectedDifficulty > 10 ? (selectedDifficulty > 15 ? '힘듦' : '적정') : '쉬움'}
-              </ToggleName2>
-              <DifficultyDetail>
-                <li>어쩌구</li>
-                <li>점수의 총 합에 따라 해당 시간표의 쉬움 / 적정 / 힘듦의 난이도가 제공됩니다.</li>
-              </DifficultyDetail>
-            </ConditionalPlanHeaderWrapper>
-          </ConditionalPlanHeaderContainer>
-          {selectedPlans.map((plan, index) => (
-            <ConditionalPlanList
-              key={index}
-              plan={plan}
-              handlePlanRemove={handlePlanRemove}
-              selectedPlans={selectedPlans}
-              addMode={false}
-            />
-          ))}
-        </ConditionalPlanBox>
-      </ConditionalPlanWrapper>
+          </ConditionalPlanBox>
+        </ConditionalPlanWrapper>
+      )}
     </ConditionalContentWrapper>
   );
 }
