@@ -2,7 +2,15 @@ import { styled } from 'styled-components';
 import { USER_DATA } from '../../../core/mockCourseScore';
 import { useEffect } from 'react';
 
-export default function SplitProgressBox({ nowscore, title, majorname, maxscore, progressscore, lefta, leftb, leftc }) {
+export default function ElectiveSplitProgressBox({
+  nowscore,
+  title,
+  majorname,
+  maxscore,
+  progressscore,
+  lefta,
+  leftb,
+}) {
   return (
     <BoxWrapper>
       <TitleWrapper>
@@ -18,15 +26,14 @@ export default function SplitProgressBox({ nowscore, title, majorname, maxscore,
         <ProgressBarBox progressscore={progressscore}>
           <SplitLineA lefta={lefta} />
           <SplitLineB leftb={leftb} />
-          <SplitLineC leftc={leftc} />
         </ProgressBarBox>
       </ProgressBarWrapper>
       <SubjectName>
-        <span>교양 (42)</span>
-        <span>전탐 (42)</span>
-        <span>1전공 (42)</span>
-        <span>2전공 (21)</span>
+        <span>학문의 기초 (15)</span>
+        <span>학문의 융합 (21)</span>
+        <span>자기설계•개발 (6)</span>
       </SubjectName>
+      <ToggleText> 상세 내역 보기 </ToggleText>
     </BoxWrapper>
   );
 }
@@ -35,7 +42,7 @@ const BoxWrapper = styled.article`
   display: flex;
   flex-direction: column;
 
-  width: 148rem;
+  width: 86rem;
   height: 15rem;
   padding: 3.2rem 2.3rem 0 3.4rem;
   margin-bottom: 3rem;
@@ -79,6 +86,18 @@ const CourseNum = styled.h1`
   font-size: 2rem;
 `;
 
+const ToggleText = styled.h6`
+  display: flex;
+  justify-content: flex-end;
+
+  margin-top: 3.5rem;
+
+  color: #000;
+  font-weight: 400;
+  font-size: 1.2rem;
+  align-content: end;
+`;
+
 const ProgressBarWrapper = styled.section`
   display: flex;
 
@@ -109,19 +128,9 @@ const SplitLineA = styled.div`
 `;
 
 const SplitLineB = styled.div`
-  position: relative;
-  left: ${({ leftb }) => leftb}rem;
-
-  height: 500px;
-  height: 100%;
-
-  border-left: 0.5rem solid #eee;
-`;
-
-const SplitLineC = styled.div`
   /* border-color: #eee; */
   position: relative;
-  left: ${({ leftc }) => leftc}rem;
+  left: ${({ leftb }) => leftb}rem;
 
   height: 500px;
   height: 100%;
@@ -139,18 +148,14 @@ const SubjectName = styled.div`
   font-size: 1.6rem;
 
   :first-child {
-    margin-left: 12rem;
+    margin-left: 9rem;
   }
 
   :nth-child(2) {
-    margin-left: 17.5rem;
+    margin-left: 27rem;
   }
 
   :nth-child(3) {
-    margin-left: 10rem;
-  }
-
-  :last-child {
-    margin-left: 19rem;
+    margin-left: 11rem;
   }
 `;
