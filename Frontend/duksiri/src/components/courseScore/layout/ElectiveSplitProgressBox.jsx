@@ -124,7 +124,7 @@ const SplitLineA = styled.div`
   height: 500px;
   height: 100%;
 
-  border-left: 0.5rem solid #eee;
+  border-left: 0.2rem solid #eee;
 `;
 
 const SplitLineB = styled.div`
@@ -135,7 +135,7 @@ const SplitLineB = styled.div`
   height: 500px;
   height: 100%;
 
-  border-left: 0.5rem solid #eee;
+  border-left: 0.2rem solid #eee;
 `;
 
 const SubjectName = styled.div`
