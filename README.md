@@ -110,8 +110,8 @@ https://dukbunae.vercel.app
 <table>
     <tr align="center">
         <td style="min-width: 150px;">
-            <a href="https://github.com/">
-              <img src={} width="100">
+            <a href="https://github.com/Ohsoom">
+              <img src="https://github.com/Ohsoom.png" width="100">
               <br />
               <b>오수민</b>
             </a> 
