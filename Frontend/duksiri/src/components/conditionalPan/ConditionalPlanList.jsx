@@ -37,7 +37,7 @@ export default function ConditionalPlanList({
         <PlanTime>{plan.grade}학년</PlanTime>
         <PlanTime>{plan.credit}학점</PlanTime>
       </PlanHeader>
-      <PlanPre>선수과목{plan.pre}</PlanPre>
+
       <PlanButton
         onClick={handleActionClick}
         isPlanSelected={isPlanSelected}
