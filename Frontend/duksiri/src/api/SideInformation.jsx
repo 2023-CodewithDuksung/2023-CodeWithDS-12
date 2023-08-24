@@ -1,123 +1,89 @@
 import { styled } from 'styled-components';
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function SideInformation() {
-  let responsePersondata, totalCredit;
-  const persondata = {
-    userStudentNumber: '20210685',
-    userName: '김덕성',
-    userFirstMajor: '컴퓨터공학전공',
-    userSecondMajor: '시각디자인전공',
-    firstMajorHard: false,
-    secondMajorHard: false,
-    requiredCourseCredit: 15,
-    a1Credit: 5,
-    a2Credit: 5,
-    a3Credit: 6,
-    selfDesignCredit: 5,
-    baseMajorCredit: 15,
-    firstMajorCredit: 24,
-    secondMajorCredit: 18,
-    restCredit: 31,
-    restSemester: 3,
-    semester: 5,
-    totalCredit: 99,
-    gradePointAverage: 3.8,
-    teamPlay: false,
-    presentation: true,
-    discussion: false,
-    bcredit: 9,
-    ccredit: 3,
-    gecredit: 42,
-  };
-  totalCredit =
-    persondata.GECredit + persondata.setBaseMajorCredit + persondata.firstMajorCredit + persondata.secondMajorCredit;
-  // useEffect(() => {
-  //   fetch('http://localhost:8080/duxby/smartschedule')
-  //     .then((response) => response.json())
-  //     .then((infoData) => {
-  //       console.log(infoData);
-  //       responsePersondata = responseJson.persondata;
-  //       totalCredit =
-  //         responsePersondata.GECredit +
-  //         responsePersondata.setBaseMajorCredit +
-  //         responsePersondata.firstMajorCredit +
-  //         responsePersondata.secondMajorCredit;
-  //     })
-  //     .catch((error) => {
-  //       console.error('에러 발생:', error);
-  //     });
-  // }, []);
+  const [responsePersondata, setResponsePersondata] = useState();
+  useEffect(() => {
+    axios
+      .get('http://localhost:8080/duxby/smartschedule')
+      .then((infoData) => {
+        setResponsePersondata(infoData.data.persondata);
+      })
+      .catch((error) => {
+        console.error('에러 발생:', error);
+      });
+  }, []);
 
   return (
     <SideWrapper>
       <InfoTitle>학적정보 요약</InfoTitle>
       <InfoTable>
         <InfoTh>학번</InfoTh>
-        <InfoTd>{persondata && persondata.userStudentNumber}</InfoTd>
+        <InfoTd>{responsePersondata && responsePersondata.userStudentNumber}</InfoTd>
         <tr></tr>
         <InfoTh>성명</InfoTh>
-        <InfoTd>{persondata && persondata.userName}</InfoTd>
+        <InfoTd>{responsePersondata && responsePersondata.userName}</InfoTd>
         <tr></tr>
         <InfoTh>수강학년(학기)</InfoTh>
         <InfoTd>
-          {persondata && Math.ceil(persondata.semester / 2)}학년
-          {persondata && persondata.semester % 2 === 1 ? '1학기' : '2학기'} ({persondata && persondata.semester}학기){' '}
+          {responsePersondata && Math.ceil(responsePersondata.semester / 2)}학년
+          {responsePersondata && responsePersondata.semester % 2 === 1 ? '1학기' : '2학기'} (
+          {responsePersondata && responsePersondata.semester}학기){' '}
         </InfoTd>
         <tr></tr>
         <tr>
           <InfoTh rowSpan={2}>전공</InfoTh>
-          <InfoTd>1전공 {persondata && persondata.userFirstMajor}</InfoTd>
+          <InfoTd>1전공 {responsePersondata && responsePersondata.userFirstMajor}</InfoTd>
         </tr>
-        <InfoTd>2전공 {persondata && persondata.userSecondMajor}</InfoTd>
+        <InfoTd>2전공 {responsePersondata && responsePersondata.userSecondMajor}</InfoTd>
       </InfoTable>
       <InfoTitle>이수내역 요약</InfoTitle>
       <InfoTable>
         <InfoTh>졸업학점</InfoTh>
         <InfoTd>
-          {persondata && persondata.totalCredit}/130<tr></tr>(남은 학점 : {persondata && persondata.restCredit})
+          {responsePersondata && responsePersondata.totalCredit}/130<tr></tr>(남은 학점 :{' '}
+          {responsePersondata && responsePersondata.restCredit})
         </InfoTd>
         <tr></tr>
         <InfoTh>교양</InfoTh>
         <InfoTd>
-          <InfoTd>
-            {persondata && persondata.userStudentNumber < 20210000
-              ? (persondata && persondata.a1Credit >= 3 ? 1 : 0) +
-                  (persondata && persondata.a2Credit >= 3 ? 1 : 0) +
-                  (persondata && persondata.a3Credit >= 3 ? 1 : 0) >=
-                2
-                ? ''
-                : (persondata && persondata.a1Credit < 3 ? 'A1영역 미이수 ' : '') +
-                  (persondata && persondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
-                  (persondata && persondata.a3Credit < 3 ? 'A3영역 미이수 ' : '')
-              : (persondata && persondata.a1Credit < 3 ? 'A1영역 미이수 ' : '') +
-                (persondata && persondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
-                (persondata && persondata.a3Credit < 3 ? 'A3영역 미이수' : '')}
-            {persondata && persondata.bcredit < 3 ? 'B영역 미이수 ' : ''}
-            {persondata && persondata.bcredit < 3 ? 'C영역 미이수' : ''}
-            {persondata && persondata.selfDesignCredit < 6 ? '자기설계 미이수 ' : ''}
-          </InfoTd>
+          {responsePersondata && responsePersondata.userStudentNumber < 20210000
+            ? (responsePersondata && responsePersondata.a1Credit >= 3 ? 1 : 0) +
+                (responsePersondata && responsePersondata.a2Credit >= 3 ? 1 : 0) +
+                (responsePersondata && responsePersondata.a3Credit >= 3 ? 1 : 0) >=
+              2
+              ? ''
+              : (responsePersondata && responsePersondata.a1Credit < 3 ? 'A1영역 미이수 ' : '') +
+                (responsePersondata && peresponsePersondatasondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
+                (responsePersondata && responsePersondata.a3Credit < 3 ? 'A3영역 미이수 ' : '')
+            : (responsePersondata && responsePersondata.a1Credit < 3 ? 'A1영역 미이수 ' : '') +
+              (responsePersondata && responsePersondata.a2Credit < 3 ? 'A2영역 미이수' : '') +
+              (responsePersondata && responsePersondata.a3Credit < 3 ? 'A3영역 미이수' : '')}
+          {responsePersondata && responsePersondata.bcredit < 3 ? 'B영역 미이수 ' : ''}
+          {responsePersondata && responsePersondata.bcredit < 3 ? 'C영역 미이수' : ''}
+          {responsePersondata && responsePersondata.selfDesignCredit < 6 ? '자기설계 미이수 ' : ''}
         </InfoTd>
         <tr></tr>
         <InfoTh>전탐</InfoTh>
         <InfoTd>
-          {persondata && persondata.userStudentNumber < 20200000
+          {responsePersondata && responsePersondata.userStudentNumber < 20200000
             ? '해당사항 없음'
-            : persondata && persondata.baseMajorCredit >= 12
+            : responsePersondata && responsePersondata.baseMajorCredit >= 12
             ? '이수 완료'
-            : `남은학점: ${12 - persondata && persondata.baseMajorCredit}`}
+            : `남은학점: ${12 - responsePersondata && responsePersondata.baseMajorCredit}`}
         </InfoTd>
         <tr></tr>
         <InfoTh>1전공</InfoTh>
         <InfoTd>
-          {persondata && persondata.firstMajorCredit}/36<br></br>(남은 학점:
-          {36 - (persondata && persondata.firstMajorCredit)})
+          {responsePersondata && responsePersondata.firstMajorCredit}/36<br></br>(남은 학점:
+          {36 - (responsePersondata && responsePersondata.firstMajorCredit)})
         </InfoTd>
         <tr></tr>
         <InfoTh>2전공</InfoTh>
         <InfoTd>
-          {persondata && persondata.secondMajorCredit}/36<br></br>(남은 학점:
-          {36 - (persondata && persondata.secondMajorCredit)})
+          {responsePersondata && responsePersondata.secondMajorCredit}/36<br></br>(남은 학점:
+          {36 - (responsePersondata && responsePersondata.secondMajorCredit)})
         </InfoTd>
       </InfoTable>
     </SideWrapper>

@@ -16,7 +16,7 @@ export default function Router() {
         <SideNavigation />
         <GlobalWrapper>
           <Routes>
-            <Route path="/" element={<CareerPlan />} />
+            <Route path="/" element={<CourseScore />} />
             <Route path="/career" element={<CareerPlan />} />
             <Route path="/course" element={<CourseScore />} />
             <Route path="/plan" element={<ConditionalPlan />} />

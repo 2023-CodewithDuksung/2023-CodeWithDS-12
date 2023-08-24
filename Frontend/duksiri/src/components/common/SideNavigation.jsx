@@ -3,13 +3,10 @@ import { useNavigate } from 'react-router-dom';
 
 export default function SideNavigation() {
   const navigate = useNavigate();
-  const MENU_LIST = ['학적 정보', '이수 내역', '커리어 플래너', '퍼스널 시간표', '추천 강의'];
+  const MENU_LIST = ['이수 내역', '커리어 플래너', '퍼스널 시간표'];
 
   function handleMovePage(menu) {
     switch (menu) {
-      case '학적 정보':
-        navigate('/career');
-        break;
       case '이수 내역':
         navigate('/course');
         break;

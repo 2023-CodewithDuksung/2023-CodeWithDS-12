@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
 import ConditionalSelectBox from '../components/conditionalPan/ConditionalSelectBox';
 import ConditionalPlanList from '../components/conditionalPan/ConditionalPlanList';
@@ -15,17 +15,9 @@ export default function ConditionalContent() {
   const [selectedPlans, setSelectedPlans] = useState([]);
   const [selectedScore, setSelectedScore] = useState(0);
   const [selectedDifficulty, setSelectedDifficulty] = useState(0);
-  let responseSubjects, dummyDataWithTime;
+  const [responseSubjects, setResponseSubjects] = useState();
+  let dummyDataWithTime;
 
-  // function handlePTToggle() {
-  //   setIsPTChecked((prevState) => !prevState);
-  // }
-  // function handleTeamToggle() {
-  //   setIsTeamChecked((prevState) => !prevState);
-  // }
-  // function handleDebateToggle() {
-  //   setIsDebateChecked((prevState) => !prevState);
-  // }
   function handlePlanAdd(plan) {
     if (!selectedPlans.some((selectedPlan) => selectedPlan.subject_name === plan.subject_name)) {
       setSelectedScore((prevScore) => prevScore + parseInt(plan.credit));
@@ -60,81 +52,6 @@ export default function ConditionalContent() {
     '월O/차137, 금P/차137',
     '수Q/차137, 목R/차137',
     '월S/차137, 금T/차137',
-  ];
-
-  const dummyData = [
-    {
-      subject_code: '004745',
-      year: 2023,
-      grade: '3',
-      discussion: 0,
-      geclassification: '',
-      presentation: 0,
-      major: '컴퓨터공학전공',
-      team_play: 0,
-      subject_classification: '전선',
-      subject_hour: 0,
-      subject_rating: 3.45,
-      subject_name: '멀티미디어프로그래밍',
-      semester: 2,
-      credit: 8,
-      professor: '이경미',
-      subject_difficulty: 4.0,
-    },
-    {
-      subject_code: '004747',
-      year: 2023,
-      grade: '3',
-      subject_rating: 2.9,
-      discussion: 0,
-      professor: '이주영',
-      geclassification: '',
-      presentation: 0,
-      major: '컴퓨터공학전공',
-      team_play: 0,
-      subject_classification: '전선',
-      subject_hour: 0,
-      subject_name: '알고리즘',
-      semester: 2,
-      credit: 20,
-      subject_difficulty: 4.0,
-    },
-    {
-      year: 2023,
-      grade: '3',
-      professor: '박우창',
-      discussion: 0,
-      subject_name: '데이터베이스프로그래밍',
-      geclassification: '',
-      subject_rating: 3.09,
-      presentation: 0,
-      major: '컴퓨터공학전공',
-      team_play: 0,
-      subject_classification: '전선',
-      subject_hour: 0,
-      semester: 2,
-      subject_code: '004750',
-      credit: 3,
-      subject_difficulty: 4.0,
-    },
-    {
-      subject_name: '모바일앱프로그래밍',
-      year: 2023,
-      grade: '3',
-      subject_rating: 4.0,
-      subject_code: '005425',
-      discussion: 0,
-      geclassification: '',
-      subject_difficulty: 4.5,
-      presentation: 0,
-      major: '컴퓨터공학전공',
-      team_play: 0,
-      subject_classification: '전선',
-      subject_hour: 0,
-      semester: 1,
-      credit: 3,
-      professor: '이경미',
-    },
   ];
 
   const optionCompleteData = [
@@ -182,23 +99,23 @@ export default function ConditionalContent() {
     if (!selectedComplete || !selectedMajor || !selectedGrade) {
       alert('선택하지 않은 값이 있습니다.');
     } else {
-      // console.log(`http://localhost:8080/duxby/smartschedule?${queryParams}`);
-
       axios
         .get(`http://localhost:8080/duxby/smartschedule?${queryParams}`)
         .then((response) => {
-          console.log('서버에서 받은 데이터:', response.data);
-          responseSubjects = response.data.subject;
+          console.log(`http://localhost:8080/duxby/smartschedule?${queryParams}`);
+          setResponseSubjects(response.data.subject);
+          console.log(response.data.subject);
+          dummyDataWithTime = responseSubjects.map((data, index) => ({
+            ...data,
+            subject_time: timeList[index],
+          }));
         })
         .catch((error) => {
           console.error('에러 발생:', error);
         });
     }
   }
-  dummyDataWithTime = dummyData.map((data, index) => ({
-    ...data,
-    subject_time: timeList[index],
-  }));
+
   return (
     <ConditionalContentWrapper>
       <ConditionalOptionContianer>
@@ -233,23 +150,6 @@ export default function ConditionalContent() {
       {dummyDataWithTime && (
         <ConditionalPlanWrapper>
           <ConditionalPlanBox>
-            {/* <ConditionalPlanHeaderContainer>
-            <ToggleName>발표 제외</ToggleName>
-            <ToggleSwitchWrapper>
-              <ToggleInput checked={isPTChecked} onChange={handlePTToggle} />
-              <ToggleSlider />
-            </ToggleSwitchWrapper>
-            <ToggleName>팀플 제외</ToggleName>
-            <ToggleSwitchWrapper>
-              <ToggleInput checked={isTeamChecked} onChange={handleTeamToggle} />
-              <ToggleSlider />
-            </ToggleSwitchWrapper>
-            <ToggleName>토의/토론 제외</ToggleName>
-            <ToggleSwitchWrapper>
-              <ToggleInput checked={isDebateChecked} onChange={handleDebateToggle} />
-              <ToggleSlider />
-            </ToggleSwitchWrapper>
-          </ConditionalPlanHeaderContainer> */}
             {dummyDataWithTime &&
               dummyDataWithTime.map((plan, index) => (
                 <ConditionalPlanList
@@ -371,49 +271,6 @@ const ToggleName2 = styled.p`
   line-height: normal;
 `;
 
-const ToggleSwitchWrapper = styled.label`
-  display: inline-block;
-  position: relative;
-  width: 40px;
-  height: 12px;
-`;
-
-const ToggleSlider = styled.span`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #d9d9d9;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: 0.4s;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    background-color: #808080;
-    border-radius: 50%;
-    left: 0px;
-    top: -1px;
-    transition: 0.4s;
-  }
-`;
-
-const ToggleInput = styled.input.attrs({ type: 'checkbox' })`
-  opacity: 0;
-  width: 0;
-  height: 0;
-
-  &:checked + ${ToggleSlider} {
-    &::before {
-      background-color: #22bcbc;
-      transform: translateX(25px);
-    }
-  }
-`;
 const ConditionalPlanWrapper = styled.section`
   margin-top: 3rem;
 
