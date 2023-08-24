@@ -20,15 +20,13 @@ const ConditionalContainer = styled.div`
 `;
 const ConditionalWrapper = styled.div`
   height: 100vh;
-  background: #f7f9fa;
   padding: 5rem;
+
+  background: #f7f9fa;
 `;
 
 const ConditionalTitle = styled.header`
   color: #22bcbc;
-  font-family: Noto Sans KR;
-  font-size: 2.8rem;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
+  font-size: 2.8rem;
 `;

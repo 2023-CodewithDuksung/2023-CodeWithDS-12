@@ -98,14 +98,13 @@ const ProgressBarBox = styled.article`
 `;
 
 const SplitLineA = styled.div`
-  /* border-color: #eee; */
   position: relative;
   left: ${({ lefta }) => lefta}rem;
 
   height: 500px;
   height: 100%;
 
-  border-left: 0.5rem solid #eee;
+  border-left: 0.2rem solid #eee;
 `;
 
 const SplitLineB = styled.div`
@@ -115,7 +114,7 @@ const SplitLineB = styled.div`
   height: 500px;
   height: 100%;
 
-  border-left: 0.5rem solid #eee;
+  border-left: 0.2rem solid #eee;
 `;
 
 const SplitLineC = styled.div`
@@ -126,7 +125,7 @@ const SplitLineC = styled.div`
   height: 500px;
   height: 100%;
 
-  border-left: 0.5rem solid #eee;
+  border-left: 0.2rem solid #eee;
 `;
 
 const SubjectName = styled.div`
@@ -139,18 +138,18 @@ const SubjectName = styled.div`
   font-size: 1.6rem;
 
   :first-child {
-    margin-left: 12rem;
+    margin-left: 20rem;
   }
 
   :nth-child(2) {
-    margin-left: 17.5rem;
+    margin-left: 21.5rem;
   }
 
   :nth-child(3) {
-    margin-left: 10rem;
+    margin-left: 14rem;
   }
 
   :last-child {
-    margin-left: 19rem;
+    margin-left: 18rem;
   }
 `;
